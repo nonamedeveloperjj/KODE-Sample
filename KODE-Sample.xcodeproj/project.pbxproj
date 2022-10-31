@@ -12,8 +12,6 @@
 		5A6A50D928EB1C8F005009D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A6A50D828EB1C8F005009D8 /* Assets.xcassets */; };
 		5A6A50DC28EB1C8F005009D8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A6A50DB28EB1C8F005009D8 /* Preview Assets.xcassets */; };
 		5A6A50E628EB1C8F005009D8 /* KODE_SampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6A50E528EB1C8F005009D8 /* KODE_SampleTests.swift */; };
-		5A6A50F028EB1C8F005009D8 /* KODE_SampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6A50EF28EB1C8F005009D8 /* KODE_SampleUITests.swift */; };
-		5A6A50F228EB1C8F005009D8 /* KODE_SampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6A50F128EB1C8F005009D8 /* KODE_SampleUITestsLaunchTests.swift */; };
 		5A6C5A5B28EC49C1000C823E /* CommonSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6C5A5A28EC49C1000C823E /* CommonSearchBar.swift */; };
 		5A6C5A5E28EDE092000C823E /* Color+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6C5A5D28EDE092000C823E /* Color+hex.swift */; };
 		5A6C5A6328EEE7C7000C823E /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6C5A6228EEE7C7000C823E /* HTTPClient.swift */; };
@@ -53,8 +51,6 @@
 		5A6A50E128EB1C8F005009D8 /* KODE-SampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "KODE-SampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A6A50E528EB1C8F005009D8 /* KODE_SampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KODE_SampleTests.swift; sourceTree = "<group>"; };
 		5A6A50EB28EB1C8F005009D8 /* KODE-SampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "KODE-SampleUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5A6A50EF28EB1C8F005009D8 /* KODE_SampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KODE_SampleUITests.swift; sourceTree = "<group>"; };
-		5A6A50F128EB1C8F005009D8 /* KODE_SampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KODE_SampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5A6C5A5A28EC49C1000C823E /* CommonSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonSearchBar.swift; sourceTree = "<group>"; };
 		5A6C5A5D28EDE092000C823E /* Color+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+hex.swift"; sourceTree = "<group>"; };
 		5A6C5A6228EEE7C7000C823E /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
@@ -98,7 +94,6 @@
 			children = (
 				5A6A50D328EB1C8C005009D8 /* KODE-Sample */,
 				5A6A50E428EB1C8F005009D8 /* KODE-SampleTests */,
-				5A6A50EE28EB1C8F005009D8 /* KODE-SampleUITests */,
 				5A6A50D228EB1C8C005009D8 /* Products */,
 				5AF21072290AC76A00933EF5 /* Frameworks */,
 			);
@@ -144,15 +139,6 @@
 				5A6A50E528EB1C8F005009D8 /* KODE_SampleTests.swift */,
 			);
 			path = "KODE-SampleTests";
-			sourceTree = "<group>";
-		};
-		5A6A50EE28EB1C8F005009D8 /* KODE-SampleUITests */ = {
-			isa = PBXGroup;
-			children = (
-				5A6A50EF28EB1C8F005009D8 /* KODE_SampleUITests.swift */,
-				5A6A50F128EB1C8F005009D8 /* KODE_SampleUITestsLaunchTests.swift */,
-			);
-			path = "KODE-SampleUITests";
 			sourceTree = "<group>";
 		};
 		5A6C5A5928EC494D000C823E /* CommonViews */ = {
@@ -379,8 +365,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A6A50F028EB1C8F005009D8 /* KODE_SampleUITests.swift in Sources */,
-				5A6A50F228EB1C8F005009D8 /* KODE_SampleUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
