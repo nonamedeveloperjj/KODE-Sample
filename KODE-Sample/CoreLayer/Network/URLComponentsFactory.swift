@@ -7,6 +7,7 @@
 
 import Foundation
 
+// sourcery: AutoMockable
 protocol URLComponentsFactoryProtocol: AnyObject {
     func create(from components: RequestComponents) -> URLComponents
 }

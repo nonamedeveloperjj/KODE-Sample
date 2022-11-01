@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A231F4F290FEAAD008BB159 /* URLSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A231F4E290FEAAD008BB159 /* URLSession+Extension.swift */; };
+		5A231F5A29114F99008BB159 /* URLSessionDataTask+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A231F5929114F99008BB159 /* URLSessionDataTask+Extension.swift */; };
 		5A6A50D528EB1C8C005009D8 /* KODE_SampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6A50D428EB1C8C005009D8 /* KODE_SampleApp.swift */; };
 		5A6A50D728EB1C8C005009D8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6A50D628EB1C8C005009D8 /* ContentView.swift */; };
 		5A6A50D928EB1C8F005009D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A6A50D828EB1C8F005009D8 /* Assets.xcassets */; };
@@ -43,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A231F4E290FEAAD008BB159 /* URLSession+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extension.swift"; sourceTree = "<group>"; };
+		5A231F5929114F99008BB159 /* URLSessionDataTask+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSessionDataTask+Extension.swift"; sourceTree = "<group>"; };
 		5A6A50D128EB1C8C005009D8 /* KODE-Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KODE-Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A6A50D428EB1C8C005009D8 /* KODE_SampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KODE_SampleApp.swift; sourceTree = "<group>"; };
 		5A6A50D628EB1C8C005009D8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -89,6 +93,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A231F4B290FEA75008BB159 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5A231F4E290FEAAD008BB159 /* URLSession+Extension.swift */,
+				5A231F5929114F99008BB159 /* URLSessionDataTask+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		5A6A50C828EB1C8C005009D8 = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +181,7 @@
 		5A6C5A6128EEE781000C823E /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				5A231F4B290FEA75008BB159 /* Extensions */,
 				5A6C5A7528F98F4E000C823E /* Models */,
 				5A6C5A6228EEE7C7000C823E /* HTTPClient.swift */,
 				5A6C5A7A290017C5000C823E /* HTTPClientAssembly.swift */,
@@ -346,7 +360,9 @@
 				5A6C5A7728F98F67000C823E /* RequestMethod.swift in Sources */,
 				5A6C5A7F2902DC62000C823E /* NetworkError.swift in Sources */,
 				5A6C5A7428F85940000C823E /* RequestComponents.swift in Sources */,
+				5A231F4F290FEAAD008BB159 /* URLSession+Extension.swift in Sources */,
 				5A6C5A79290016F5000C823E /* URLComponentsFactory.swift in Sources */,
+				5A231F5A29114F99008BB159 /* URLSessionDataTask+Extension.swift in Sources */,
 				5A6C5A7D290018D3000C823E /* URLRequestFactory.swift in Sources */,
 				5A6A50D528EB1C8C005009D8 /* KODE_SampleApp.swift in Sources */,
 			);

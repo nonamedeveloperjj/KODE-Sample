@@ -7,6 +7,7 @@
 
 import Foundation
 
+// sourcery: AutoMockable
 protocol HTTPClientProtocol: AnyObject {
     func sendRequest(requestComponents: RequestComponents, completion: @escaping (Result<Data?, Error>) -> Void)
 }
@@ -14,10 +15,16 @@ protocol HTTPClientProtocol: AnyObject {
 final class HTTPClient: HTTPClientProtocol {
     private let urlComponentsFactory: URLComponentsFactoryProtocol
     private let urlRequestFactory: URLRequestFactoryProtocol
+    private let urlSession: URLSessionProtocol
     
-    init(urlComponentsFactory: URLComponentsFactoryProtocol, urlRequestFactory: URLRequestFactoryProtocol) {
+    init(
+        urlComponentsFactory: URLComponentsFactoryProtocol,
+        urlRequestFactory: URLRequestFactoryProtocol,
+        urlSession: URLSessionProtocol
+    ) {
         self.urlComponentsFactory = urlComponentsFactory
         self.urlRequestFactory = urlRequestFactory
+        self.urlSession = urlSession
     }
     
     func sendRequest(requestComponents: RequestComponents, completion: @escaping (Result<Data?, Error>) -> Void) {
@@ -30,7 +37,7 @@ final class HTTPClient: HTTPClientProtocol {
         
         let request = urlRequestFactory.create(from: requestComponents, url: url)
         
-        URLSession.shared.dataTask(with: request) { data, response, error in
+        urlSession.createDataTask(with: request) { data, response, error in
             if let error = error {
                 completion(.failure(error))
                 return

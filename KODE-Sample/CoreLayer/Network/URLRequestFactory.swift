@@ -7,6 +7,7 @@
 
 import Foundation
 
+// sourcery: AutoMockable
 protocol URLRequestFactoryProtocol: AnyObject {
     func create(from requestComponents: RequestComponents, url: URL) -> URLRequest
 }

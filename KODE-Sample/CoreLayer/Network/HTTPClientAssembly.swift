@@ -11,7 +11,12 @@ final class HTTPClientAssembly {
     func create() -> HTTPClient {
         let urlCompoentsFactory = URLComponentsFactory()
         let urlRequestFactory = URLRequestFactory()
+        let urlSession = URLSession.shared
         
-        return HTTPClient(urlComponentsFactory: urlCompoentsFactory, urlRequestFactory: urlRequestFactory)
+        return HTTPClient(
+            urlComponentsFactory: urlCompoentsFactory,
+            urlRequestFactory: urlRequestFactory,
+            urlSession: urlSession
+        )
     }
 }
