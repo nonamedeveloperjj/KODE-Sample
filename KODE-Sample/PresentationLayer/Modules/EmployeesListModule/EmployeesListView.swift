@@ -8,24 +8,26 @@
 import SwiftUI
 
 struct EmployeesListView: View {
-    private let presenter: EmployeesListPresenterProtocol
+    @ObservedObject private var viewModel: EmployeesListViewModel
     
     var body: some View {
         Text("Hello, world!")
             .padding()
         Button("Search Employees") {
-            presenter.viewIsReady()
+            
+        }.onAppear {
+            viewModel.fetchEmployees()
         }
     }
     
-    init(presenter: EmployeesListPresenterProtocol) {
-        self.presenter = presenter
+    init(viewModel: EmployeesListViewModel) {
+        self.viewModel = viewModel
     }
 }
 
 struct EmployeesListView_Previews: PreviewProvider {
     static var previews: some View {
-        let presenter = EmployeesListPresenter(employeesService: EmployeesService(httpClient: HTTPClientAssembly().create()))
-        EmployeesListView(presenter: presenter)
+        let viewModel = EmployeesListViewModel(employeesService: EmployeesService(httpClient: HTTPClientAssembly().create()))
+        EmployeesListView(viewModel: viewModel)
     }
 }

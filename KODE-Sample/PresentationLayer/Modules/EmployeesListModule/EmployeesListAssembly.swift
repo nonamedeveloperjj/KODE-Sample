@@ -10,10 +10,8 @@ import SwiftUI
 final class EmployeesListAssembly {
     func createModule() -> EmployeesListView {
         let employeesService = EmployeesService(httpClient: HTTPClientAssembly().create())
-        let presenter = EmployeesListPresenter(employeesService: employeesService)
-        let view = EmployeesListView(presenter: presenter)
-        
-        presenter.view = view
+        let viewModel = EmployeesListViewModel(employeesService: employeesService)
+        let view = EmployeesListView(viewModel: viewModel)
         return view
     }
 }
