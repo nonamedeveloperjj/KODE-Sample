@@ -44,13 +44,6 @@
 			remoteGlobalIDString = 5A6A50D028EB1C8C005009D8;
 			remoteInfo = "KODE-Sample";
 		};
-		5A6A50EC28EB1C8F005009D8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5A6A50C928EB1C8C005009D8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5A6A50D028EB1C8C005009D8;
-			remoteInfo = "KODE-Sample";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -69,7 +62,6 @@
 		5A6A50D828EB1C8F005009D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A6A50DB28EB1C8F005009D8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5A6A50E128EB1C8F005009D8 /* KODE-SampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "KODE-SampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5A6A50EB28EB1C8F005009D8 /* KODE-SampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "KODE-SampleUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A6C5A5A28EC49C1000C823E /* CommonSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonSearchBar.swift; sourceTree = "<group>"; };
 		5A6C5A5D28EDE092000C823E /* Color+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+hex.swift"; sourceTree = "<group>"; };
 		5A6C5A6228EEE7C7000C823E /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
@@ -95,13 +87,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5A6A50DE28EB1C8F005009D8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5A6A50E828EB1C8F005009D8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -161,7 +146,6 @@
 			children = (
 				5A6A50D128EB1C8C005009D8 /* KODE-Sample.app */,
 				5A6A50E128EB1C8F005009D8 /* KODE-SampleTests.xctest */,
-				5A6A50EB28EB1C8F005009D8 /* KODE-SampleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -355,24 +339,6 @@
 			productReference = 5A6A50E128EB1C8F005009D8 /* KODE-SampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		5A6A50EA28EB1C8F005009D8 /* KODE-SampleUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5A6A50FB28EB1C8F005009D8 /* Build configuration list for PBXNativeTarget "KODE-SampleUITests" */;
-			buildPhases = (
-				5A6A50E728EB1C8F005009D8 /* Sources */,
-				5A6A50E828EB1C8F005009D8 /* Frameworks */,
-				5A6A50E928EB1C8F005009D8 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5A6A50ED28EB1C8F005009D8 /* PBXTargetDependency */,
-			);
-			name = "KODE-SampleUITests";
-			productName = "KODE-SampleUITests";
-			productReference = 5A6A50EB28EB1C8F005009D8 /* KODE-SampleUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -387,10 +353,6 @@
 						CreatedOnToolsVersion = 13.3.1;
 					};
 					5A6A50E028EB1C8F005009D8 = {
-						CreatedOnToolsVersion = 13.3.1;
-						TestTargetID = 5A6A50D028EB1C8C005009D8;
-					};
-					5A6A50EA28EB1C8F005009D8 = {
 						CreatedOnToolsVersion = 13.3.1;
 						TestTargetID = 5A6A50D028EB1C8C005009D8;
 					};
@@ -415,7 +377,6 @@
 			targets = (
 				5A6A50D028EB1C8C005009D8 /* KODE-Sample */,
 				5A6A50E028EB1C8F005009D8 /* KODE-SampleTests */,
-				5A6A50EA28EB1C8F005009D8 /* KODE-SampleUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -432,13 +393,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5A6A50DF28EB1C8F005009D8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5A6A50E928EB1C8F005009D8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -485,13 +439,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5A6A50E728EB1C8F005009D8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -499,11 +446,6 @@
 			isa = PBXTargetDependency;
 			target = 5A6A50D028EB1C8C005009D8 /* KODE-Sample */;
 			targetProxy = 5A6A50E228EB1C8F005009D8 /* PBXContainerItemProxy */;
-		};
-		5A6A50ED28EB1C8F005009D8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5A6A50D028EB1C8C005009D8 /* KODE-Sample */;
-			targetProxy = 5A6A50EC28EB1C8F005009D8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -724,44 +666,6 @@
 			};
 			name = Release;
 		};
-		5A6A50FC28EB1C8F005009D8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 642D2T3U78;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.makarenko.KODE-SampleUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "KODE-Sample";
-			};
-			name = Debug;
-		};
-		5A6A50FD28EB1C8F005009D8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 642D2T3U78;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.makarenko.KODE-SampleUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "KODE-Sample";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -788,15 +692,6 @@
 			buildConfigurations = (
 				5A6A50F928EB1C8F005009D8 /* Debug */,
 				5A6A50FA28EB1C8F005009D8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5A6A50FB28EB1C8F005009D8 /* Build configuration list for PBXNativeTarget "KODE-SampleUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5A6A50FC28EB1C8F005009D8 /* Debug */,
-				5A6A50FD28EB1C8F005009D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
