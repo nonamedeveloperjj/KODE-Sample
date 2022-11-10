@@ -16,6 +16,7 @@
 		5A231F5E29128DC3008BB159 /* EmployeesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A231F5D29128DC3008BB159 /* EmployeesResponse.swift */; };
 		5A231F6029128DD4008BB159 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A231F5F29128DD4008BB159 /* Employee.swift */; };
 		5A231F6329141CC9008BB159 /* EmployeesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A231F6229141CC9008BB159 /* EmployeesListViewModel.swift */; };
+		5A231F6529143339008BB159 /* EmployeesListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A231F6429143339008BB159 /* EmployeesListRowView.swift */; };
 		5A231F682914365E008BB159 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5A231F672914365E008BB159 /* Kingfisher */; };
 		5A6A50D528EB1C8C005009D8 /* KODE_SampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6A50D428EB1C8C005009D8 /* KODE_SampleApp.swift */; };
 		5A6A50D728EB1C8C005009D8 /* EmployeesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6A50D628EB1C8C005009D8 /* EmployeesListView.swift */; };
@@ -56,6 +57,7 @@
 		5A231F5D29128DC3008BB159 /* EmployeesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesResponse.swift; sourceTree = "<group>"; };
 		5A231F5F29128DD4008BB159 /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		5A231F6229141CC9008BB159 /* EmployeesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesListViewModel.swift; sourceTree = "<group>"; };
+		5A231F6429143339008BB159 /* EmployeesListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesListRowView.swift; sourceTree = "<group>"; };
 		5A6A50D128EB1C8C005009D8 /* KODE-Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KODE-Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A6A50D428EB1C8C005009D8 /* KODE_SampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KODE_SampleApp.swift; sourceTree = "<group>"; };
 		5A6A50D628EB1C8C005009D8 /* EmployeesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesListView.swift; sourceTree = "<group>"; };
@@ -129,6 +131,14 @@
 				5A231F5D29128DC3008BB159 /* EmployeesResponse.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		5A5DE679291A813B00962F8E /* Rows */ = {
+			isa = PBXGroup;
+			children = (
+				5A231F6429143339008BB159 /* EmployeesListRowView.swift */,
+			);
+			path = Rows;
 			sourceTree = "<group>";
 		};
 		5A6A50C828EB1C8C005009D8 = {
@@ -247,6 +257,7 @@
 		5A6C5A6D28F6E857000C823E /* EmployeesListModule */ = {
 			isa = PBXGroup;
 			children = (
+				5A5DE679291A813B00962F8E /* Rows */,
 				5A6C5A7128F6EB7A000C823E /* EmployeesListAssembly.swift */,
 				5A6A50D628EB1C8C005009D8 /* EmployeesListView.swift */,
 				5A231F6229141CC9008BB159 /* EmployeesListViewModel.swift */,
@@ -411,6 +422,7 @@
 				5A6C5A6328EEE7C7000C823E /* HTTPClient.swift in Sources */,
 				5A6C5A7B290017C5000C823E /* HTTPClientAssembly.swift in Sources */,
 				5A6C5A5E28EDE092000C823E /* Color+hex.swift in Sources */,
+				5A231F6529143339008BB159 /* EmployeesListRowView.swift in Sources */,
 				5A6C5A6628EF12F8000C823E /* EmployeesService.swift in Sources */,
 				5A6C5A7728F98F67000C823E /* RequestMethod.swift in Sources */,
 				5A6C5A7228F6EB7A000C823E /* EmployeesListAssembly.swift in Sources */,
