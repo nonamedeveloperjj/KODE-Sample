@@ -11,13 +11,16 @@ struct EmployeesListView: View {
     @ObservedObject private var viewModel: EmployeesListViewModel
     
     var body: some View {
-        Text("Hello, world!")
-            .padding()
-        Button("Search Employees") {
-            
+        List(viewModel.employees) { employee in
+            EmployeesListRowView(employee: employee)
+                .listRowSeparator(.hidden)
+                .listRowInsets(EdgeInsets())
+        }.refreshable {
+            viewModel.fetchEmployees()
         }.onAppear {
             viewModel.fetchEmployees()
         }
+        .listStyle(.plain)
     }
     
     init(viewModel: EmployeesListViewModel) {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Employee: Decodable {
+struct Employee: Decodable, Identifiable {
     let id: String
     let avatarUrl: String
     let firstName: String
@@ -30,10 +30,36 @@ struct Employee: Decodable {
         case phone
     }
     
+    internal init(
+        id: String,
+        avatarUrl: String,
+        firstName: String,
+        lastName: String,
+        userTag: String,
+        department: String,
+        position: String,
+        birthday: Date,
+        phone: String
+    ) {
+        self.id = id
+        self.avatarUrl = avatarUrl
+        self.firstName = firstName
+        self.lastName = lastName
+        self.userTag = userTag
+        self.department = department
+        self.position = position
+        self.birthday = birthday
+        self.phone = phone
+    }
+    
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decode(String.self, forKey: .id)
-        self.avatarUrl = try container.decode(String.self, forKey: .avatarUrl)
+        
+        // Using hardcoded url due to invalid avatar urls from server
+        let randomAvatarNumber = Int.random(in: 0...262)
+        let stubAvatarUrl = "https://raw.githubusercontent.com/nonamedeveloperjj/fake-avatars/main/avatars/\(randomAvatarNumber).png"
+        self.avatarUrl = stubAvatarUrl
         self.firstName = try container.decode(String.self, forKey: .firstName)
         self.lastName = try container.decode(String.self, forKey: .lastName)
         self.userTag = try container.decode(String.self, forKey: .userTag)
