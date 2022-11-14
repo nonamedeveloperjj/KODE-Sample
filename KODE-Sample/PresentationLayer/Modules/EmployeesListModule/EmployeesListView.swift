@@ -15,6 +15,7 @@ struct EmployeesListView: View {
             EmployeesListRowView(employee: employee)
                 .listRowSeparator(.hidden)
                 .listRowInsets(EdgeInsets())
+                .redacted(reason: viewModel.isLoadingEmployees ? .placeholder : [])
         }.refreshable {
             viewModel.fetchEmployees()
         }.onAppear {

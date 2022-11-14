@@ -8,7 +8,8 @@
 import Foundation
 
 final class EmployeesListViewModel: ObservableObject {
-    @Published var employees: [Employee] = []
+    @Published var employees: [Employee] = Array(repeating: Employee.placeholderModel, count: 10)
+    @Published var isLoadingEmployees = false
     
     private let employeesService: EmployeesServiceProtocol
     
@@ -17,6 +18,8 @@ final class EmployeesListViewModel: ObservableObject {
     }
     
     func fetchEmployees() {
+        isLoadingEmployees = true
+        
         employeesService.fetchEmployees { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
@@ -24,7 +27,8 @@ final class EmployeesListViewModel: ObservableObject {
                     self?.employees = response.items
                 case let .failure(error):
                     print(error)
-                }                
+                }
+                self?.isLoadingEmployees = false
             }
         }
     }

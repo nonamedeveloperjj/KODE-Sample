@@ -72,3 +72,17 @@ struct Employee: Decodable, Identifiable {
         self.phone = try container.decode(String.self, forKey: .phone)
     }
 }
+
+extension Employee {
+    static let placeholderModel = Employee(
+        id: "id",
+        avatarUrl: "",
+        firstName: "Андрей",
+        lastName: "Иванов",
+        userTag: "QA",
+        department: "pr",
+        position: "Specialist",
+        birthday: Date(),
+        phone: "997-546-8116"
+    )
+}
