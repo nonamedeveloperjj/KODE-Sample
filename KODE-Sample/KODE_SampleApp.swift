@@ -11,7 +11,7 @@ import SwiftUI
 struct KODE_SampleApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            EmployeesListAssembly().createModule()
         }
     }
 }

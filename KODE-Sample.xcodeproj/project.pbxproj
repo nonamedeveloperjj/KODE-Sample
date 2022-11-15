@@ -13,13 +13,20 @@
 		5A231F52290FEC1A008BB159 /* HTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A231F51290FEC1A008BB159 /* HTTPClientTests.swift */; };
 		5A231F55290FF7D7008BB159 /* RequestComponents+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A231F54290FF7D7008BB159 /* RequestComponents+Equatable.swift */; };
 		5A231F5A29114F99008BB159 /* URLSessionDataTask+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A231F5929114F99008BB159 /* URLSessionDataTask+Extension.swift */; };
+		5A231F5E29128DC3008BB159 /* EmployeesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A231F5D29128DC3008BB159 /* EmployeesResponse.swift */; };
+		5A231F6029128DD4008BB159 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A231F5F29128DD4008BB159 /* Employee.swift */; };
+		5A231F6329141CC9008BB159 /* EmployeesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A231F6229141CC9008BB159 /* EmployeesListViewModel.swift */; };
+		5A231F6529143339008BB159 /* EmployeesListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A231F6429143339008BB159 /* EmployeesListRowView.swift */; };
+		5A231F682914365E008BB159 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5A231F672914365E008BB159 /* Kingfisher */; };
 		5A6A50D528EB1C8C005009D8 /* KODE_SampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6A50D428EB1C8C005009D8 /* KODE_SampleApp.swift */; };
-		5A6A50D728EB1C8C005009D8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6A50D628EB1C8C005009D8 /* ContentView.swift */; };
+		5A6A50D728EB1C8C005009D8 /* EmployeesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6A50D628EB1C8C005009D8 /* EmployeesListView.swift */; };
 		5A6A50D928EB1C8F005009D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A6A50D828EB1C8F005009D8 /* Assets.xcassets */; };
 		5A6A50DC28EB1C8F005009D8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A6A50DB28EB1C8F005009D8 /* Preview Assets.xcassets */; };
 		5A6C5A5B28EC49C1000C823E /* CommonSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6C5A5A28EC49C1000C823E /* CommonSearchBar.swift */; };
 		5A6C5A5E28EDE092000C823E /* Color+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6C5A5D28EDE092000C823E /* Color+hex.swift */; };
 		5A6C5A6328EEE7C7000C823E /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6C5A6228EEE7C7000C823E /* HTTPClient.swift */; };
+		5A6C5A6628EF12F8000C823E /* EmployeesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6C5A6528EF12F8000C823E /* EmployeesService.swift */; };
+		5A6C5A7228F6EB7A000C823E /* EmployeesListAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6C5A7128F6EB7A000C823E /* EmployeesListAssembly.swift */; };
 		5A6C5A7428F85940000C823E /* RequestComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6C5A7328F85940000C823E /* RequestComponents.swift */; };
 		5A6C5A7728F98F67000C823E /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6C5A7628F98F67000C823E /* RequestMethod.swift */; };
 		5A6C5A79290016F5000C823E /* URLComponentsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6C5A78290016F5000C823E /* URLComponentsFactory.swift */; };
@@ -38,13 +45,6 @@
 			remoteGlobalIDString = 5A6A50D028EB1C8C005009D8;
 			remoteInfo = "KODE-Sample";
 		};
-		5A6A50EC28EB1C8F005009D8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5A6A50C928EB1C8C005009D8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5A6A50D028EB1C8C005009D8;
-			remoteInfo = "KODE-Sample";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -54,16 +54,21 @@
 		5A231F51290FEC1A008BB159 /* HTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientTests.swift; sourceTree = "<group>"; };
 		5A231F54290FF7D7008BB159 /* RequestComponents+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RequestComponents+Equatable.swift"; sourceTree = "<group>"; };
 		5A231F5929114F99008BB159 /* URLSessionDataTask+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSessionDataTask+Extension.swift"; sourceTree = "<group>"; };
+		5A231F5D29128DC3008BB159 /* EmployeesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesResponse.swift; sourceTree = "<group>"; };
+		5A231F5F29128DD4008BB159 /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
+		5A231F6229141CC9008BB159 /* EmployeesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesListViewModel.swift; sourceTree = "<group>"; };
+		5A231F6429143339008BB159 /* EmployeesListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesListRowView.swift; sourceTree = "<group>"; };
 		5A6A50D128EB1C8C005009D8 /* KODE-Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KODE-Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A6A50D428EB1C8C005009D8 /* KODE_SampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KODE_SampleApp.swift; sourceTree = "<group>"; };
-		5A6A50D628EB1C8C005009D8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5A6A50D628EB1C8C005009D8 /* EmployeesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesListView.swift; sourceTree = "<group>"; };
 		5A6A50D828EB1C8F005009D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A6A50DB28EB1C8F005009D8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5A6A50E128EB1C8F005009D8 /* KODE-SampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "KODE-SampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5A6A50EB28EB1C8F005009D8 /* KODE-SampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "KODE-SampleUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A6C5A5A28EC49C1000C823E /* CommonSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonSearchBar.swift; sourceTree = "<group>"; };
 		5A6C5A5D28EDE092000C823E /* Color+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+hex.swift"; sourceTree = "<group>"; };
 		5A6C5A6228EEE7C7000C823E /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		5A6C5A6528EF12F8000C823E /* EmployeesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesService.swift; sourceTree = "<group>"; };
+		5A6C5A7128F6EB7A000C823E /* EmployeesListAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesListAssembly.swift; sourceTree = "<group>"; };
 		5A6C5A7328F85940000C823E /* RequestComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestComponents.swift; sourceTree = "<group>"; };
 		5A6C5A7628F98F67000C823E /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
 		5A6C5A78290016F5000C823E /* URLComponentsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLComponentsFactory.swift; sourceTree = "<group>"; };
@@ -79,17 +84,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A231F682914365E008BB159 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5A6A50DE28EB1C8F005009D8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5A6A50E828EB1C8F005009D8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -116,6 +115,32 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		5A231F5B29128D96008BB159 /* EmployeesSerivice */ = {
+			isa = PBXGroup;
+			children = (
+				5A231F5C29128DAD008BB159 /* Models */,
+				5A6C5A6528EF12F8000C823E /* EmployeesService.swift */,
+			);
+			path = EmployeesSerivice;
+			sourceTree = "<group>";
+		};
+		5A231F5C29128DAD008BB159 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5A231F5F29128DD4008BB159 /* Employee.swift */,
+				5A231F5D29128DC3008BB159 /* EmployeesResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5A5DE679291A813B00962F8E /* Rows */ = {
+			isa = PBXGroup;
+			children = (
+				5A231F6429143339008BB159 /* EmployeesListRowView.swift */,
+			);
+			path = Rows;
+			sourceTree = "<group>";
+		};
 		5A6A50C828EB1C8C005009D8 = {
 			isa = PBXGroup;
 			children = (
@@ -131,7 +156,6 @@
 			children = (
 				5A6A50D128EB1C8C005009D8 /* KODE-Sample.app */,
 				5A6A50E128EB1C8F005009D8 /* KODE-SampleTests.xctest */,
-				5A6A50EB28EB1C8F005009D8 /* KODE-SampleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -139,11 +163,11 @@
 		5A6A50D328EB1C8C005009D8 /* KODE-Sample */ = {
 			isa = PBXGroup;
 			children = (
-				5A6C5A5C28EDE079000C823E /* Extensions */,
 				5A6C5A6028EEE76E000C823E /* CoreLayer */,
+				5A6C5A6B28F6E6AC000C823E /* PresentationLayer */,
+				5A6C5A6428EF0EDE000C823E /* ServiceLayer */,
 				5A6C5A5928EC494D000C823E /* CommonViews */,
 				5A6A50D428EB1C8C005009D8 /* KODE_SampleApp.swift */,
-				5A6A50D628EB1C8C005009D8 /* ContentView.swift */,
 				5A6A50D828EB1C8F005009D8 /* Assets.xcassets */,
 				5A9F8799290C1BD4000F63F7 /* SupportingFiles */,
 				5A6A50DA28EB1C8F005009D8 /* Preview Content */,
@@ -203,6 +227,42 @@
 				5A6C5A7C290018D3000C823E /* URLRequestFactory.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		5A6C5A6428EF0EDE000C823E /* ServiceLayer */ = {
+			isa = PBXGroup;
+			children = (
+				5A231F5B29128D96008BB159 /* EmployeesSerivice */,
+			);
+			path = ServiceLayer;
+			sourceTree = "<group>";
+		};
+		5A6C5A6B28F6E6AC000C823E /* PresentationLayer */ = {
+			isa = PBXGroup;
+			children = (
+				5A6C5A6C28F6E849000C823E /* Modules */,
+				5A6C5A5C28EDE079000C823E /* Extensions */,
+			);
+			path = PresentationLayer;
+			sourceTree = "<group>";
+		};
+		5A6C5A6C28F6E849000C823E /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				5A6C5A6D28F6E857000C823E /* EmployeesListModule */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		5A6C5A6D28F6E857000C823E /* EmployeesListModule */ = {
+			isa = PBXGroup;
+			children = (
+				5A5DE679291A813B00962F8E /* Rows */,
+				5A6C5A7128F6EB7A000C823E /* EmployeesListAssembly.swift */,
+				5A6A50D628EB1C8C005009D8 /* EmployeesListView.swift */,
+				5A231F6229141CC9008BB159 /* EmployeesListViewModel.swift */,
+			);
+			path = EmployeesListModule;
 			sourceTree = "<group>";
 		};
 		5A6C5A7528F98F4E000C823E /* Models */ = {
@@ -266,6 +326,7 @@
 			);
 			name = "KODE-Sample";
 			packageProductDependencies = (
+				5A231F672914365E008BB159 /* Kingfisher */,
 			);
 			productName = "KODE-Sample";
 			productReference = 5A6A50D128EB1C8C005009D8 /* KODE-Sample.app */;
@@ -289,24 +350,6 @@
 			productReference = 5A6A50E128EB1C8F005009D8 /* KODE-SampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		5A6A50EA28EB1C8F005009D8 /* KODE-SampleUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5A6A50FB28EB1C8F005009D8 /* Build configuration list for PBXNativeTarget "KODE-SampleUITests" */;
-			buildPhases = (
-				5A6A50E728EB1C8F005009D8 /* Sources */,
-				5A6A50E828EB1C8F005009D8 /* Frameworks */,
-				5A6A50E928EB1C8F005009D8 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5A6A50ED28EB1C8F005009D8 /* PBXTargetDependency */,
-			);
-			name = "KODE-SampleUITests";
-			productName = "KODE-SampleUITests";
-			productReference = 5A6A50EB28EB1C8F005009D8 /* KODE-SampleUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -324,10 +367,6 @@
 						CreatedOnToolsVersion = 13.3.1;
 						TestTargetID = 5A6A50D028EB1C8C005009D8;
 					};
-					5A6A50EA28EB1C8F005009D8 = {
-						CreatedOnToolsVersion = 13.3.1;
-						TestTargetID = 5A6A50D028EB1C8C005009D8;
-					};
 				};
 			};
 			buildConfigurationList = 5A6A50CC28EB1C8C005009D8 /* Build configuration list for PBXProject "KODE-Sample" */;
@@ -341,6 +380,7 @@
 			mainGroup = 5A6A50C828EB1C8C005009D8;
 			packageReferences = (
 				5AF21071290AC74700933EF5 /* XCRemoteSwiftPackageReference "Sourcery" */,
+				5A231F662914365E008BB159 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 5A6A50D228EB1C8C005009D8 /* Products */;
 			projectDirPath = "";
@@ -348,7 +388,6 @@
 			targets = (
 				5A6A50D028EB1C8C005009D8 /* KODE-Sample */,
 				5A6A50E028EB1C8F005009D8 /* KODE-SampleTests */,
-				5A6A50EA28EB1C8F005009D8 /* KODE-SampleUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -371,13 +410,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5A6A50E928EB1C8F005009D8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -386,14 +418,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A6C5A5B28EC49C1000C823E /* CommonSearchBar.swift in Sources */,
+				5A231F6029128DD4008BB159 /* Employee.swift in Sources */,
 				5A6C5A6328EEE7C7000C823E /* HTTPClient.swift in Sources */,
 				5A6C5A7B290017C5000C823E /* HTTPClientAssembly.swift in Sources */,
 				5A6C5A5E28EDE092000C823E /* Color+hex.swift in Sources */,
-				5A6A50D728EB1C8C005009D8 /* ContentView.swift in Sources */,
+				5A231F6529143339008BB159 /* EmployeesListRowView.swift in Sources */,
+				5A6C5A6628EF12F8000C823E /* EmployeesService.swift in Sources */,
 				5A6C5A7728F98F67000C823E /* RequestMethod.swift in Sources */,
+				5A6C5A7228F6EB7A000C823E /* EmployeesListAssembly.swift in Sources */,
+				5A6A50D728EB1C8C005009D8 /* EmployeesListView.swift in Sources */,
 				5A6C5A7F2902DC62000C823E /* NetworkError.swift in Sources */,
 				5A6C5A7428F85940000C823E /* RequestComponents.swift in Sources */,
+				5A231F5E29128DC3008BB159 /* EmployeesResponse.swift in Sources */,
 				5A231F4F290FEAAD008BB159 /* URLSession+Extension.swift in Sources */,
+				5A231F6329141CC9008BB159 /* EmployeesListViewModel.swift in Sources */,
 				5A6C5A79290016F5000C823E /* URLComponentsFactory.swift in Sources */,
 				5A231F5A29114F99008BB159 /* URLSessionDataTask+Extension.swift in Sources */,
 				5A6C5A7D290018D3000C823E /* URLRequestFactory.swift in Sources */,
@@ -413,13 +451,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5A6A50E728EB1C8F005009D8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -427,11 +458,6 @@
 			isa = PBXTargetDependency;
 			target = 5A6A50D028EB1C8C005009D8 /* KODE-Sample */;
 			targetProxy = 5A6A50E228EB1C8F005009D8 /* PBXContainerItemProxy */;
-		};
-		5A6A50ED28EB1C8F005009D8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5A6A50D028EB1C8C005009D8 /* KODE-Sample */;
-			targetProxy = 5A6A50EC28EB1C8F005009D8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -567,7 +593,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -598,7 +624,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -621,7 +647,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 642D2T3U78;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.makarenko.KODE-SampleTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -641,7 +667,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 642D2T3U78;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.makarenko.KODE-SampleTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -649,42 +675,6 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KODE-Sample.app/KODE-Sample";
-			};
-			name = Release;
-		};
-		5A6A50FC28EB1C8F005009D8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 642D2T3U78;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.makarenko.KODE-SampleUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "KODE-Sample";
-			};
-			name = Debug;
-		};
-		5A6A50FD28EB1C8F005009D8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 642D2T3U78;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.makarenko.KODE-SampleUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "KODE-Sample";
 			};
 			name = Release;
 		};
@@ -718,18 +708,17 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5A6A50FB28EB1C8F005009D8 /* Build configuration list for PBXNativeTarget "KODE-SampleUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5A6A50FC28EB1C8F005009D8 /* Debug */,
-				5A6A50FD28EB1C8F005009D8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5A231F662914365E008BB159 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		5AF21071290AC74700933EF5 /* XCRemoteSwiftPackageReference "Sourcery" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/krzysztofzablocki/Sourcery";
@@ -739,6 +728,14 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5A231F672914365E008BB159 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A231F662914365E008BB159 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5A6A50C928EB1C8C005009D8 /* Project object */;
 }
