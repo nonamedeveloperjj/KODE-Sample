@@ -32,4 +32,12 @@ final class EmployeesListViewModel: ObservableObject {
             }
         }
     }
+    
+    func isIncluded(employee: Employee, enteredText: String) -> Bool {
+        if enteredText.isEmpty {
+            return true
+        }
+        let fullName = employee.firstName + " " + employee.lastName
+        return fullName.lowercased().contains(enteredText.lowercased())
+    }
 }

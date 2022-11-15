@@ -8,29 +8,29 @@
 import SwiftUI
 
 struct CommonSearchBar: View {
+    @Binding var enteredText: String
+    private var isFocused: FocusState<Bool>.Binding
     
     private let appearance: Appearance
-    private var model: Model?
-    
-    @State private var isEditing = false
-    @State private var enteredText: String = ""
     
     var body: some View {
         HStack {
             TextField(appearance.placeholderText, text: $enteredText)
+                .focused(isFocused)
                 .padding(10)
                 .padding(.horizontal, 34)
                 .background(Color(.systemGray6))
                 .cornerRadius(16)
+                .autocorrectionDisabled()
                 .overlay(
                     HStack {
-                        let magnifierImageColor = isEditing ? Color(hex: "#050510") : Color(hex: "#C3C3C6")
+                        let magnifierImageColor = isFocused.wrappedValue ? Color(hex: "#050510") : Color(hex: "#C3C3C6")
                         Image(appearance.activeMagnifierImageName)
                             .foregroundColor(magnifierImageColor)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.leading, 14)
                         
-                        if isEditing && !enteredText.isEmpty {
+                        if isFocused.wrappedValue && !enteredText.isEmpty {
                             Button {
                                 enteredText = ""
                             } label: {
@@ -42,30 +42,23 @@ struct CommonSearchBar: View {
                     }
                 )
                 .padding(.horizontal, 16)
-                .onTapGesture {
-                    isEditing = true
-                }
-                .onChange(of: enteredText) { newValue in
-                    model?.onTextEnter(newValue)
-                }
             
-            if isEditing {
+            if isFocused.wrappedValue {
                 Button("Отмена") {
-                    isEditing = false
+                    isFocused.wrappedValue = false
                     enteredText = ""
                 }
+                .frame(height: 18.0)
                 .padding(.trailing, 10)
                 .foregroundColor(appearance.cancelButtonColor)
             }
         }
     }
     
-    init(appearance: Appearance = Appearance()) {
+    init(enteredText: Binding<String>, isFocused: FocusState<Bool>.Binding, appearance: Appearance = Appearance()) {
+        _enteredText = enteredText
+        self.isFocused = isFocused
         self.appearance = appearance
-    }
-    
-    mutating func update(with model: Model) {
-        self.model = model
     }
 }
             
@@ -77,14 +70,10 @@ extension CommonSearchBar {
         let backgroundColor: Color = Color(.systemGray6)
         let cancelButtonColor: Color = Color(hex: "#6534FF")
     }
-    
-    struct Model {
-        let onTextEnter: (String) -> Void
-    }
 }
 
 struct CommonSearchBar_Previews: PreviewProvider {
     static var previews: some View {
-        CommonSearchBar()
+        CommonSearchBar(enteredText: .constant(""), isFocused: FocusState<Bool>().projectedValue)
     }
 }

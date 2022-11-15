@@ -9,9 +9,14 @@ import SwiftUI
 
 struct EmployeesListView: View {
     @ObservedObject private var viewModel: EmployeesListViewModel
+    @State private var enteredText = ""
+    @FocusState private var isSearchBarFocused: Bool
     
     var body: some View {
-        List(viewModel.employees) { employee in
+        CommonSearchBar(enteredText: $enteredText, isFocused: $isSearchBarFocused)
+        List(viewModel.employees.filter({
+            viewModel.isIncluded(employee: $0, enteredText: enteredText)
+        })) { employee in
             EmployeesListRowView(employee: employee)
                 .listRowSeparator(.hidden)
                 .listRowInsets(EdgeInsets())
@@ -20,8 +25,11 @@ struct EmployeesListView: View {
             viewModel.fetchEmployees()
         }.onAppear {
             viewModel.fetchEmployees()
-        }
+        }.gesture(DragGesture().onChanged({ _ in
+            isSearchBarFocused = false
+        }))
         .listStyle(.plain)
+        .ignoresSafeArea()
     }
     
     init(viewModel: EmployeesListViewModel) {
