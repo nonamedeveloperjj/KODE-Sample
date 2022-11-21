@@ -10,6 +10,7 @@ import Foundation
 final class EmployeesListViewModel: ObservableObject {
     @Published var employees: [Employee] = Array(repeating: Employee.placeholderModel, count: 10)
     @Published var isLoadingEmployees = false
+    @Published var fetchEmployeesError: Error?
     
     private let employeesService: EmployeesServiceProtocol
     
@@ -19,6 +20,7 @@ final class EmployeesListViewModel: ObservableObject {
     
     func fetchEmployees() {
         isLoadingEmployees = true
+        fetchEmployeesError = nil
         
         employeesService.fetchEmployees { [weak self] result in
             DispatchQueue.main.async {
@@ -26,7 +28,7 @@ final class EmployeesListViewModel: ObservableObject {
                 case let .success(response):
                     self?.employees = response.items
                 case let .failure(error):
-                    print(error)
+                    self?.fetchEmployeesError = error
                 }
                 self?.isLoadingEmployees = false
             }
