@@ -8,10 +8,43 @@
 import SwiftUI
 
 struct CommonSearchBar: View {
-    @Binding var enteredText: String
+    @Binding private var enteredText: String
+    @Binding private var isBottomSheetOpen: Bool
+    @Binding private var sortState: EmployeesSortOrder
     private var isFocused: FocusState<Bool>.Binding
     
     private let appearance: Appearance
+    
+    private var clearButton: some View {
+        Button {
+            enteredText = ""
+        } label: {
+            Image(appearance.clearImageName)
+                .foregroundColor(.gray)
+                .padding(.trailing, 13)
+        }
+    }
+    
+    private var sortButton: some View {
+        Button {
+            isBottomSheetOpen = true
+        } label: {
+            let sortImageColor = sortState == .alphabet ? Color(hex: "#C3C3C6") : Color(hex: "#6534FF")
+            Image(appearance.sortImageName)
+                .foregroundColor(sortImageColor)
+                .padding(.trailing, 13.5)
+        }
+    }
+    
+    private var cancelButton: some View {
+        Button(appearance.cancelButtonText) {
+            isFocused.wrappedValue = false
+            enteredText = ""
+        }
+        .frame(height: 18.0)
+        .padding(.trailing, 10)
+        .foregroundColor(appearance.cancelButtonColor)
+    }
     
     var body: some View {
         HStack {
@@ -31,33 +64,33 @@ struct CommonSearchBar: View {
                             .padding(.leading, 14)
                         
                         if isFocused.wrappedValue && !enteredText.isEmpty {
-                            Button {
-                                enteredText = ""
-                            } label: {
-                                Image(appearance.clearImageName)
-                                    .foregroundColor(.gray)
-                                    .padding(.trailing, 13)
-                            }
+                            clearButton
+                        }
+                        
+                        if !isFocused.wrappedValue && enteredText.isEmpty {
+                            sortButton
                         }
                     }
                 )
                 .padding(.horizontal, 16)
             
             if isFocused.wrappedValue {
-                Button("Отмена") {
-                    isFocused.wrappedValue = false
-                    enteredText = ""
-                }
-                .frame(height: 18.0)
-                .padding(.trailing, 10)
-                .foregroundColor(appearance.cancelButtonColor)
+                cancelButton
             }
         }
     }
     
-    init(enteredText: Binding<String>, isFocused: FocusState<Bool>.Binding, appearance: Appearance = Appearance()) {
-        _enteredText = enteredText
+    init(
+        enteredText: Binding<String>,
+        isFocused: FocusState<Bool>.Binding,
+        isBottomSheetOpen: Binding<Bool>,
+        sortState: Binding<EmployeesSortOrder>,
+        appearance: Appearance = Appearance()
+    ) {
+        self._enteredText = enteredText
         self.isFocused = isFocused
+        self._isBottomSheetOpen = isBottomSheetOpen
+        self._sortState = sortState
         self.appearance = appearance
     }
 }
@@ -67,13 +100,20 @@ extension CommonSearchBar {
         let placeholderText: String = "Введи имя, тег, почту..."
         let activeMagnifierImageName = "search_bar_magnifier"
         let clearImageName = "search_bar_clear"
+        let sortImageName = "search_bar_sort"
         let backgroundColor: Color = Color(.systemGray6)
         let cancelButtonColor: Color = Color(hex: "#6534FF")
+        let cancelButtonText = "Отмена"
     }
 }
 
 struct CommonSearchBar_Previews: PreviewProvider {
     static var previews: some View {
-        CommonSearchBar(enteredText: .constant(""), isFocused: FocusState<Bool>().projectedValue)
+        CommonSearchBar(
+            enteredText: .constant(""),
+            isFocused: FocusState<Bool>().projectedValue,
+            isBottomSheetOpen: .constant(false),
+            sortState: .constant(.birtday)
+        )
     }
 }
