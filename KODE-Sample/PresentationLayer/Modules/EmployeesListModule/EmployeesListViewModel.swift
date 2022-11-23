@@ -11,6 +11,11 @@ final class EmployeesListViewModel: ObservableObject {
     @Published var employees: [Employee] = Array(repeating: Employee.placeholderModel, count: 10)
     @Published var isLoadingEmployees = false
     @Published var fetchEmployeesError: Error?
+    @Published var employeesSortState: EmployeesSortOrder = .alphabet {
+        willSet {
+            sortEmployees(sortState: newValue)
+        }
+    }
     
     private let employeesService: EmployeesServiceProtocol
     
@@ -23,15 +28,16 @@ final class EmployeesListViewModel: ObservableObject {
         fetchEmployeesError = nil
         
         employeesService.fetchEmployees { [weak self] result in
-            DispatchQueue.main.async {
-                switch result {
-                case let .success(response):
-                    self?.employees = response.items
-                case let .failure(error):
-                    self?.fetchEmployeesError = error
-                }
-                self?.isLoadingEmployees = false
+            guard let self = self else { return }
+            
+            switch result {
+            case let .success(response):
+                self.employees = response.items
+                self.sortEmployees(sortState: self.employeesSortState)
+            case let .failure(error):
+                self.fetchEmployeesError = error
             }
+            self.isLoadingEmployees = false
         }
     }
     
@@ -41,5 +47,11 @@ final class EmployeesListViewModel: ObservableObject {
         }
         let fullName = employee.firstName + " " + employee.lastName
         return fullName.lowercased().contains(enteredText.lowercased())
+    }
+    
+    private func sortEmployees(sortState: EmployeesSortOrder) {
+        employees.sort(by: {
+            sortState == .alphabet ? $0.firstName < $1.firstName : $0.birthday < $1.birthday
+        })
     }
 }

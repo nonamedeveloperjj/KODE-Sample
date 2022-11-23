@@ -27,6 +27,26 @@ import AppKit
 
 
 
+class EmployeesServiceProtocolMock: EmployeesServiceProtocol {
+
+    //MARK: - fetchEmployees
+
+    var fetchEmployeesCompletionCallsCount = 0
+    var fetchEmployeesCompletionCalled: Bool {
+        return fetchEmployeesCompletionCallsCount > 0
+    }
+    var fetchEmployeesCompletionReceivedCompletion: ((Result<EmployeesResponse, Error>) -> Void)?
+    var fetchEmployeesCompletionReceivedInvocations: [((Result<EmployeesResponse, Error>) -> Void)] = []
+    var fetchEmployeesCompletionClosure: ((@escaping (Result<EmployeesResponse, Error>) -> Void) -> Void)?
+
+    func fetchEmployees(completion: @escaping (Result<EmployeesResponse, Error>) -> Void) {
+        fetchEmployeesCompletionCallsCount += 1
+        fetchEmployeesCompletionReceivedCompletion = completion
+        fetchEmployeesCompletionReceivedInvocations.append(completion)
+        fetchEmployeesCompletionClosure?(completion)
+    }
+
+}
 class HTTPClientProtocolMock: HTTPClientProtocol {
 
     //MARK: - sendRequest

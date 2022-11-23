@@ -29,13 +29,15 @@ final class EmployeesService: EmployeesServiceProtocol {
         )
         
         httpClient.sendRequest(requestComponents: requestComponents) { result in
-            switch result {
-            case let .success(data):
-                if let data = data, let employeesResponse = try? JSONDecoder().decode(EmployeesResponse.self, from: data) {
-                    completion(.success(employeesResponse))
-                }
-            case let .failure(error):
-                completion(.failure(error))
+            DispatchQueue.main.async {
+                switch result {
+                case let .success(data):
+                    if let data = data, let employeesResponse = try? JSONDecoder().decode(EmployeesResponse.self, from: data) {
+                        completion(.success(employeesResponse))
+                    }
+                case let .failure(error):
+                    completion(.failure(error))
+                }                
             }
         }
     }
