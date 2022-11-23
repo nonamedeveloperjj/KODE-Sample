@@ -52,18 +52,29 @@ struct EmployeesListView: View {
         .edgesIgnoringSafeArea(.all)
     }
     
-    private var listView: some View {
+    private var searchBar: some View {
+        CommonSearchBar(
+            enteredText: $enteredText,
+            isFocused: $isSearchBarFocused,
+            isBottomSheetOpen: $isSortViewOpen,
+            sortState: $viewModel.employeesSortState
+        )
+    }
+    
+    private var contentView: some View {
         ZStack {
             VStack {
-                CommonSearchBar(
-                    enteredText: $enteredText,
-                    isFocused: $isSearchBarFocused,
-                    isBottomSheetOpen: $isSortViewOpen,
-                    sortState: $viewModel.employeesSortState
-                )
-                List(viewModel.employees.filter({
+                searchBar
+                
+                let filteredEmployees = viewModel.employees.filter({
                     viewModel.isIncluded(employee: $0, enteredText: enteredText)
-                })) { employee in
+                })
+                
+                if filteredEmployees.isEmpty {
+                    EmployeesListEmptyView()
+                }
+                
+                List(filteredEmployees) { employee in
                     EmployeesListRowView(employee: employee)
                         .listRowSeparator(.hidden)
                         .listRowInsets(EdgeInsets())
@@ -90,7 +101,7 @@ struct EmployeesListView: View {
     
     var body: some View {
         if viewModel.fetchEmployeesError == nil {
-            listView
+            contentView
         } else {
             errorView
         }
