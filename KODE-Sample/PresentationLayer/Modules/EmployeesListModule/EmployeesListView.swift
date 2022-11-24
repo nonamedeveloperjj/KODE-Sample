@@ -69,10 +69,7 @@ struct EmployeesListView: View {
                 let filteredEmployees = viewModel.employees.filter({
                     viewModel.isIncluded(employee: $0, enteredText: enteredText)
                 })
-                
-                if filteredEmployees.isEmpty {
-                    EmployeesListEmptyView()
-                }
+                let shouldShowEmptyState = filteredEmployees.isEmpty
                 
                 List(filteredEmployees) { employee in
                     EmployeesListRowView(employee: employee)
@@ -86,6 +83,12 @@ struct EmployeesListView: View {
                 }.gesture(DragGesture().onChanged({ _ in
                     isSearchBarFocused = false
                 }))
+                .overlay(alignment: .top) {
+                    if shouldShowEmptyState {
+                        EmployeesListEmptyView()
+                    }
+                }
+                .disabled(shouldShowEmptyState)
                 .listStyle(.plain)
                 .ignoresSafeArea()
                 .animation(nil, value: UUID())
