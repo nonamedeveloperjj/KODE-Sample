@@ -68,6 +68,7 @@ struct Employee: Decodable, Identifiable {
         let birthday = try container.decode(String.self, forKey: .birthday)
         
         let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         self.birthday = dateFormatter.date(from: birthday) ?? Date()
         self.phone = try container.decode(String.self, forKey: .phone)
     }

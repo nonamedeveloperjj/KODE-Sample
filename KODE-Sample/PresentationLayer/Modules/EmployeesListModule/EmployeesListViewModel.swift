@@ -18,9 +18,11 @@ final class EmployeesListViewModel: ObservableObject {
     }
     
     private let employeesService: EmployeesServiceProtocol
+    private let rowsFactory: EmployeesListRowsFactoryProtocol
     
-    init(employeesService: EmployeesServiceProtocol) {
+    init(employeesService: EmployeesServiceProtocol, rowsFactory: EmployeesListRowsFactoryProtocol) {
         self.employeesService = employeesService
+        self.rowsFactory = rowsFactory
     }
     
     func fetchEmployees() {
@@ -47,6 +49,12 @@ final class EmployeesListViewModel: ObservableObject {
         }
         let fullName = employee.firstName + " " + employee.lastName
         return fullName.lowercased().contains(enteredText.lowercased())
+    }
+    
+    func rowProviders(with enteredText: String) -> [RowProviderWrapper] {
+        let filteredEmployees = employees.filter({ isIncluded(employee: $0, enteredText: enteredText) })
+        let rowModels = rowsFactory.createRowModels(from: filteredEmployees, sortOrder: employeesSortState)
+        return rowModels.map({ RowProviderWrapper(rowProvider: $0) })
     }
     
     private func sortEmployees(sortState: EmployeesSortOrder) {
