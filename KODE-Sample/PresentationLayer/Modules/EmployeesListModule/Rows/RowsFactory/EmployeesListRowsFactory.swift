@@ -7,6 +7,7 @@
 
 import Foundation
 
+// sourcery: AutoMockable
 protocol EmployeesListRowsFactoryProtocol {
     func createRowModels(from employees: [Employee], sortOrder: EmployeesSortOrder) -> [any RowProvider]
 }

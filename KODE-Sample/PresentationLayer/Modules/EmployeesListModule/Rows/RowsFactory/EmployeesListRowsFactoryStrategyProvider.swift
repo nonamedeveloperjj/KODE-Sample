@@ -7,6 +7,7 @@
 
 import Foundation
 
+// sourcery: AutoMockable
 protocol EmployeesListRowsFactoryStrategyProviderProtocol {
     func strategy(for sortOrder: EmployeesSortOrder) -> EmployeesListRowsFactoryStrategy
 }

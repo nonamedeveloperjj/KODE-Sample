@@ -43,18 +43,18 @@ final class EmployeesListViewModel: ObservableObject {
         }
     }
     
-    func isIncluded(employee: Employee, enteredText: String) -> Bool {
+    func rowProviders(with enteredText: String) -> [RowProviderWrapper] {
+        let filteredEmployees = employees.filter({ isIncluded(employee: $0, enteredText: enteredText) })
+        let rowModels = rowsFactory.createRowModels(from: filteredEmployees, sortOrder: employeesSortState)
+        return rowModels.map({ RowProviderWrapper(rowProvider: $0) })
+    }
+    
+    private func isIncluded(employee: Employee, enteredText: String) -> Bool {
         if enteredText.isEmpty {
             return true
         }
         let fullName = employee.firstName + " " + employee.lastName
         return fullName.lowercased().contains(enteredText.lowercased())
-    }
-    
-    func rowProviders(with enteredText: String) -> [RowProviderWrapper] {
-        let filteredEmployees = employees.filter({ isIncluded(employee: $0, enteredText: enteredText) })
-        let rowModels = rowsFactory.createRowModels(from: filteredEmployees, sortOrder: employeesSortState)
-        return rowModels.map({ RowProviderWrapper(rowProvider: $0) })
     }
     
     private func sortEmployees(sortState: EmployeesSortOrder) {

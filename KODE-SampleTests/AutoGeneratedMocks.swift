@@ -27,6 +27,81 @@ import AppKit
 
 
 
+class EmployeesListRowsFactoryProtocolMock: EmployeesListRowsFactoryProtocol {
+
+    //MARK: - createRowModels
+
+    var createRowModelsFromSortOrderCallsCount = 0
+    var createRowModelsFromSortOrderCalled: Bool {
+        return createRowModelsFromSortOrderCallsCount > 0
+    }
+    var createRowModelsFromSortOrderReceivedArguments: (employees: [Employee], sortOrder: EmployeesSortOrder)?
+    var createRowModelsFromSortOrderReceivedInvocations: [(employees: [Employee], sortOrder: EmployeesSortOrder)] = []
+    var createRowModelsFromSortOrderReturnValue: [any RowProvider]!
+    var createRowModelsFromSortOrderClosure: (([Employee], EmployeesSortOrder) -> [any RowProvider])?
+
+    func createRowModels(from employees: [Employee], sortOrder: EmployeesSortOrder) -> [any RowProvider] {
+        createRowModelsFromSortOrderCallsCount += 1
+        createRowModelsFromSortOrderReceivedArguments = (employees: employees, sortOrder: sortOrder)
+        createRowModelsFromSortOrderReceivedInvocations.append((employees: employees, sortOrder: sortOrder))
+        if let createRowModelsFromSortOrderClosure = createRowModelsFromSortOrderClosure {
+            return createRowModelsFromSortOrderClosure(employees, sortOrder)
+        } else {
+            return createRowModelsFromSortOrderReturnValue
+        }
+    }
+
+}
+class EmployeesListRowsFactoryStrategyMock: EmployeesListRowsFactoryStrategy {
+
+    //MARK: - rowProviders
+
+    var rowProvidersFromCallsCount = 0
+    var rowProvidersFromCalled: Bool {
+        return rowProvidersFromCallsCount > 0
+    }
+    var rowProvidersFromReceivedEmployees: [Employee]?
+    var rowProvidersFromReceivedInvocations: [[Employee]] = []
+    var rowProvidersFromReturnValue: [any RowProvider]!
+    var rowProvidersFromClosure: (([Employee]) -> [any RowProvider])?
+
+    func rowProviders(from employees: [Employee]) -> [any RowProvider] {
+        rowProvidersFromCallsCount += 1
+        rowProvidersFromReceivedEmployees = employees
+        rowProvidersFromReceivedInvocations.append(employees)
+        if let rowProvidersFromClosure = rowProvidersFromClosure {
+            return rowProvidersFromClosure(employees)
+        } else {
+            return rowProvidersFromReturnValue
+        }
+    }
+
+}
+class EmployeesListRowsFactoryStrategyProviderProtocolMock: EmployeesListRowsFactoryStrategyProviderProtocol {
+
+    //MARK: - strategy
+
+    var strategyForCallsCount = 0
+    var strategyForCalled: Bool {
+        return strategyForCallsCount > 0
+    }
+    var strategyForReceivedSortOrder: EmployeesSortOrder?
+    var strategyForReceivedInvocations: [EmployeesSortOrder] = []
+    var strategyForReturnValue: EmployeesListRowsFactoryStrategy!
+    var strategyForClosure: ((EmployeesSortOrder) -> EmployeesListRowsFactoryStrategy)?
+
+    func strategy(for sortOrder: EmployeesSortOrder) -> EmployeesListRowsFactoryStrategy {
+        strategyForCallsCount += 1
+        strategyForReceivedSortOrder = sortOrder
+        strategyForReceivedInvocations.append(sortOrder)
+        if let strategyForClosure = strategyForClosure {
+            return strategyForClosure(sortOrder)
+        } else {
+            return strategyForReturnValue
+        }
+    }
+
+}
 class EmployeesServiceProtocolMock: EmployeesServiceProtocol {
 
     //MARK: - fetchEmployees
