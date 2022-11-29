@@ -166,13 +166,13 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		5A231F5B29128D96008BB159 /* EmployeesSerivice */ = {
+		5A231F5B29128D96008BB159 /* EmployeesService */ = {
 			isa = PBXGroup;
 			children = (
 				5A231F5C29128DAD008BB159 /* Models */,
 				5A6C5A6528EF12F8000C823E /* EmployeesService.swift */,
 			);
-			path = EmployeesSerivice;
+			path = EmployeesService;
 			sourceTree = "<group>";
 		};
 		5A231F5C29128DAD008BB159 /* Models */ = {
@@ -309,7 +309,7 @@
 		5A6C5A6428EF0EDE000C823E /* ServiceLayer */ = {
 			isa = PBXGroup;
 			children = (
-				5A231F5B29128D96008BB159 /* EmployeesSerivice */,
+				5A231F5B29128D96008BB159 /* EmployeesService */,
 			);
 			path = ServiceLayer;
 			sourceTree = "<group>";
