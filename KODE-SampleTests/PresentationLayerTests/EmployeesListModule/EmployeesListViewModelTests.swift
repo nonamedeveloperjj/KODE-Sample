@@ -10,12 +10,14 @@ import XCTest
 
 final class EmployeesListViewModelTests: XCTestCase {
     private var employeesServiceMock: EmployeesServiceProtocolMock!
+    private var rowsFactoryMock: EmployeesListRowsFactoryProtocolMock!
     private var viewModel: EmployeesListViewModel!
     
     override func setUpWithError() throws {
         try super.setUpWithError()
         employeesServiceMock = EmployeesServiceProtocolMock()
-        viewModel = EmployeesListViewModel(employeesService: employeesServiceMock)
+        rowsFactoryMock = EmployeesListRowsFactoryProtocolMock()
+        viewModel = EmployeesListViewModel(employeesService: employeesServiceMock, rowsFactory: rowsFactoryMock)
     }
     
     override func tearDownWithError() throws {
@@ -69,28 +71,6 @@ final class EmployeesListViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.fetchEmployeesError! as NSError, obtainedError)
     }
     
-    func testIsIncludedReturnesTrueIfEmployeeNameContainsEnteredText() {
-        // given
-        let employee = TestData.employee1
-        
-        // when
-        let isIncluded = viewModel.isIncluded(employee: employee, enteredText: "name1")
-        
-        // then
-        XCTAssertTrue(isIncluded)
-    }
-    
-    func testIsIncludedReturnesFalseIfEmployeeNameContainsEnteredText() {
-        // given
-        let employee = TestData.employee1
-        
-        // when
-        let isIncluded = viewModel.isIncluded(employee: employee, enteredText: "name2")
-        
-        // then
-        XCTAssertFalse(isIncluded)
-    }
-    
     func testEmployeesSortedByBirthdayOnChangeSortState() {
         // given
         viewModel.employees = [TestData.employee1, TestData.employee2]
@@ -111,6 +91,42 @@ final class EmployeesListViewModelTests: XCTestCase {
         
         // then
         XCTAssertTrue(viewModel.employees.elementsEqual([TestData.employee1, TestData.employee2].sorted(by: { $0.firstName < $1.firstName })))
+    }
+    
+    func testRowProvidersCreatedProperly() {
+        // given
+        let employeesResponse = EmployeesResponse(items: [TestData.employee2, TestData.employee1])
+        
+        employeesServiceMock.fetchEmployeesCompletionClosure = { completion in
+            let result: Result<EmployeesResponse, Error> = .success(employeesResponse)
+            completion(result)
+        }
+        viewModel.fetchEmployees()
+        let enteredText = "name1"
+        let rowProviders = [EmployeesListDateSeparatorRowModel(date: "2023")]
+        rowsFactoryMock.createRowModelsFromSortOrderReturnValue = rowProviders
+        
+        // when
+        let rowProviderWrappers = viewModel.rowProviders(with: enteredText)
+        
+        // then
+        XCTAssertEqual(rowsFactoryMock.createRowModelsFromSortOrderCallsCount, 1)
+        XCTAssertEqual(rowsFactoryMock.createRowModelsFromSortOrderReceivedArguments!.sortOrder, viewModel.employeesSortState)
+        XCTAssertTrue(
+            rowsFactoryMock.createRowModelsFromSortOrderReceivedArguments!.employees
+                .elementsEqual(viewModel.employees.filter({ isIncluded(employee: $0, enteredText: enteredText) })))
+        XCTAssertTrue(
+            rowProviderWrappers.map({ $0.rowProvider as! EmployeesListDateSeparatorRowModel })
+                .elementsEqual(rowProviders)
+        )
+    }
+    
+    private func isIncluded(employee: Employee, enteredText: String) -> Bool {
+        if enteredText.isEmpty {
+            return true
+        }
+        let fullName = employee.firstName + " " + employee.lastName
+        return fullName.lowercased().contains(enteredText.lowercased())
     }
 }
 

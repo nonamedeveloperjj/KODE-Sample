@@ -66,13 +66,11 @@ struct EmployeesListView: View {
             VStack {
                 searchBar
                 
-                let filteredEmployees = viewModel.employees.filter({
-                    viewModel.isIncluded(employee: $0, enteredText: enteredText)
-                })
-                let shouldShowEmptyState = filteredEmployees.isEmpty
+                let rowProviderWrappers = viewModel.rowProviders(with: enteredText)
+                let shouldShowEmptyState = rowProviderWrappers.isEmpty
                 
-                List(filteredEmployees) { employee in
-                    EmployeesListRowView(employee: employee)
+                List(rowProviderWrappers) { rowProviderWrapper in
+                    rowProviderWrapper.rowProvider.provideRow()
                         .listRowSeparator(.hidden)
                         .listRowInsets(EdgeInsets())
                         .redacted(reason: viewModel.isLoadingEmployees ? .placeholder : [])
@@ -117,7 +115,12 @@ struct EmployeesListView: View {
 
 struct EmployeesListView_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = EmployeesListViewModel(employeesService: EmployeesService(httpClient: HTTPClientAssembly().create()))
+        let viewModel = EmployeesListViewModel(
+            employeesService: EmployeesService(httpClient: HTTPClientAssembly().create()),
+            rowsFactory: EmployeesListRowsFactory(
+                strategyProvider: EmployeesListRowsFactoryStrategyProvider()
+            )
+        )
         EmployeesListView(viewModel: viewModel)
     }
 }
