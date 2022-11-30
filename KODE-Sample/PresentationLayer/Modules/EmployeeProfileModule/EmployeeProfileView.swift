@@ -19,7 +19,7 @@ struct EmployeeProfileView: View {
                 .resizable()
                 .clipShape(Circle())
                 .frame(width: 104.0, height: 104.0)
-                .padding(.top, 60.0)
+                .padding(.top, -15.0)
                 .padding(.bottom, 24.0)
             HStack(spacing: 0.0) {
                 Text(viewModel.employee.firstName + " " + viewModel.employee.lastName)

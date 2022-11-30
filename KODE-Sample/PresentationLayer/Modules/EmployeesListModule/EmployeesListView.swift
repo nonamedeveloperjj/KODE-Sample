@@ -62,42 +62,58 @@ struct EmployeesListView: View {
     }
     
     private var contentView: some View {
-        ZStack {
-            VStack {
-                searchBar
-                
-                let rowProviderWrappers = viewModel.rowProviders(with: enteredText)
-                let shouldShowEmptyState = rowProviderWrappers.isEmpty
-                
-                List(rowProviderWrappers) { rowProviderWrapper in
-                    rowProviderWrapper.rowProvider.provideRow()
-                        .listRowSeparator(.hidden)
-                        .listRowInsets(EdgeInsets())
-                        .redacted(reason: viewModel.isLoadingEmployees ? .placeholder : [])
-                }.refreshable {
-                    viewModel.fetchEmployees()
-                }.onAppear {
-                    viewModel.fetchEmployees()
-                }.gesture(DragGesture().onChanged({ _ in
-                    isSearchBarFocused = false
-                }))
-                .overlay(alignment: .top) {
-                    if shouldShowEmptyState {
-                        EmployeesListEmptyView()
+        NavigationView {
+            ZStack {
+                VStack {
+                    searchBar
+                    
+                    let rowProviderWrappers = viewModel.rowProviders(with: enteredText)
+                    let shouldShowEmptyState = rowProviderWrappers.isEmpty
+                    
+                    List(rowProviderWrappers) { rowProviderWrapper in
+                        let rowModel = viewModel.rowModel(with: rowProviderWrapper.id)
+                        rowProviderWrapper.rowProvider.provideRow()
+                            .redacted(reason: viewModel.isLoadingEmployees ? .placeholder : [])
+                            .listRowSeparator(.hidden)
+                            .listRowInsets(EdgeInsets())
+                            .overlay {
+                                NavigationLink {
+                                    if let employee = rowModel {
+                                        EmployeeProfileAssembly().createModule(with: employee)
+                                    }
+                                } label: {
+                                    EmptyView()
+                                }
+                                .navigationTitle("")
+                                .opacity(0.0)
+                                .disabled(viewModel.isLoadingEmployees || rowModel == nil)
+                            }
+                    }.refreshable {
+                        viewModel.fetchEmployees()
+                    }.onFirstAppear {
+                        viewModel.fetchEmployees()
+                    }.gesture(DragGesture().onChanged({ _ in
+                        isSearchBarFocused = false
+                    }))
+                    .overlay(alignment: .top) {
+                        if shouldShowEmptyState {
+                            EmployeesListEmptyView()
+                        }
                     }
+                    .disabled(shouldShowEmptyState)
+                    .listStyle(.plain)
+                    .ignoresSafeArea()
+                    .animation(nil, value: UUID())
                 }
-                .disabled(shouldShowEmptyState)
-                .listStyle(.plain)
-                .ignoresSafeArea()
-                .animation(nil, value: UUID())
-            }
-            
-            if isSortViewOpen {
-                dimmedView
-                bottomSheetView
+                
+                if isSortViewOpen {
+                    dimmedView
+                    bottomSheetView
+                }
             }
         }
         .animation(.default, value: isSortViewOpen)
+        .accentColor(Color(hex: "#050510"))
     }
     
     var body: some View {
