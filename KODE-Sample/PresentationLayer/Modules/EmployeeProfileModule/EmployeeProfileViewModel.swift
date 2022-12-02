@@ -11,12 +11,19 @@ final class EmployeeProfileViewModel: ObservableObject {
     let employee: Employee
     
     var formattedBirthday: String {
-        dateFormatter.string(from: employee.birthday)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d MMMM yyyy"
+        return dateFormatter.string(from: employee.birthday)
     }
     
     var employeeAge: String {
-        let dateComponents = Calendar.current.dateComponents([.year], from: employee.birthday, to: Date())
-        return String(dateComponents.year ?? 0) + " лет"
+        let yearsOld = Calendar.current.dateComponents([.year], from: employee.birthday, to: Date()).year ?? 0
+        let localizedFormat = NSLocalizedString("years_old", comment: "")
+        return String(format: localizedFormat, yearsOld)
+    }
+    
+    var phoneUrl: URL? {
+        return URL(string: "tel:\(employee.phone)")
     }
     
     private var dateFormatter: DateFormatter {

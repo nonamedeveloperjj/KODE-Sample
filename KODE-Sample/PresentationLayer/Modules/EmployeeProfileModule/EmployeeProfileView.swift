@@ -58,23 +58,23 @@ struct EmployeeProfileView: View {
         .frame(height: 74.0)
     }
     
+    @ViewBuilder
     private var phoneNumberView: some View {
-        Button {
-            print("PHONE")
-        } label: {
-            HStack(spacing: 0.0) {
-                Image("employees_profile_phone")
-                    .resizable()
-                    .frame(width: 24.0, height: 24.0)
-                    .padding(.leading, 16.0)
-                Text(viewModel.employee.phone)
-                    .font(.system(size: 16.0, weight: .medium))
-                    .foregroundColor(Color(hex: "#050510"))
-                    .padding(.leading, 12.0)
-                Spacer()
+        if let phoneUrl = viewModel.phoneUrl {
+            Link(destination: phoneUrl) {
+                HStack(spacing: 0.0) {
+                    Image("employees_profile_phone")
+                        .resizable()
+                        .frame(width: 24.0, height: 24.0)
+                        .padding(.leading, 16.0)
+                    Text(viewModel.employee.phone)
+                        .font(.system(size: 16.0, weight: .medium))
+                        .foregroundColor(Color(hex: "#050510"))
+                        .padding(.leading, 12.0)
+                }
+                .frame(height: 74.0)
             }
         }
-        .frame(height: 74.0)
     }
     
     private var separatorView: some View {
@@ -85,7 +85,7 @@ struct EmployeeProfileView: View {
     }
     
     private var personalInfoView: some View {
-        VStack(spacing: 0.0) {
+        VStack(alignment: .leading, spacing: 0.0) {
             birthdayView
             separatorView
             phoneNumberView
