@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EmployeesListSortOptionView: View {
-    @Binding private var isSelected: Bool
+    private let isSelected: Bool
     private let text: String
     
     private let onSelect: (() -> Void)
@@ -16,7 +16,6 @@ struct EmployeesListSortOptionView: View {
     var body: some View {
         HStack(spacing: 0.0) {
             Button {
-                isSelected = true
                 onSelect()
             } label: {
                 let strokeWidth = isSelected ? 6.0 : 2.0
@@ -36,11 +35,11 @@ struct EmployeesListSortOptionView: View {
     }
     
     init(
-        isSelected: Binding<Bool>,
+        isSelected: Bool,
         text: String,
         onSelect: @escaping (() -> Void)
     ) {
-        self._isSelected = isSelected
+        self.isSelected = isSelected
         self.text = text
         self.onSelect = onSelect
     }
@@ -49,7 +48,7 @@ struct EmployeesListSortOptionView: View {
 struct EmployeesListSortOptionView_Previews: PreviewProvider {
     static var previews: some View {
         EmployeesListSortOptionView(
-            isSelected: .constant(true),
+            isSelected: true,
             text: "По алфавиту",
             onSelect: {}
         )

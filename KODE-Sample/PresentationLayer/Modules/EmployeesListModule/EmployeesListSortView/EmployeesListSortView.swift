@@ -10,8 +10,6 @@ import SwiftUI
 struct EmployeesListSortView: View {
     @Binding private var selectedOption: EmployeesSortOrder
     @Binding private var isOpen: Bool
-    @State private var isAlphabetOptionSelected = false
-    @State private var isBirthdayOptionSelected = false
     
     var body: some View {
         VStack(spacing: 0.0) {
@@ -19,43 +17,28 @@ struct EmployeesListSortView: View {
                 .font(.system(size: 20.0, weight: .semibold))
                 .padding(EdgeInsets(top: 12.0, leading: 0.0, bottom: 38.0, trailing: 0.0))
             EmployeesListSortOptionView(
-                isSelected: $isAlphabetOptionSelected,
+                isSelected: selectedOption == .alphabet,
                 text: "По алфавиту",
                 onSelect: {
+                    selectedOption = .alphabet
                     isOpen.toggle()
-                    updateSelectedOption(newValue: .alphabet)
                 }
             )
             .padding(.bottom, 42.0)
             EmployeesListSortOptionView(
-                isSelected: $isBirthdayOptionSelected,
+                isSelected: selectedOption == .birtday,
                 text: "По дню рождения",
                 onSelect: {
+                    selectedOption = .birtday
                     isOpen.toggle()
-                    updateSelectedOption(newValue: .birtday)
                 }
             )
-        }.onAppear {
-            updateSelectedOption(newValue: selectedOption)
         }
     }
     
     init(selectedOption: Binding<EmployeesSortOrder>, isOpen: Binding<Bool>) {
         self._selectedOption = selectedOption
         self._isOpen = isOpen
-    }
-    
-    private func updateSelectedOption(newValue: EmployeesSortOrder) {
-        selectedOption = newValue
-        
-        switch selectedOption {
-        case .alphabet:
-            isAlphabetOptionSelected = true
-            isBirthdayOptionSelected = false
-        case .birtday:
-            isBirthdayOptionSelected = true
-            isAlphabetOptionSelected = false
-        }
     }
 }
 
