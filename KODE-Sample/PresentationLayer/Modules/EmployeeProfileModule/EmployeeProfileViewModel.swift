@@ -29,12 +29,6 @@ final class EmployeeProfileViewModel: ObservableObject {
         return urlComponents.url
     }
     
-    private var dateFormatter: DateFormatter {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "d MMMM yyyy"
-        return dateFormatter
-    }
-    
     init(employee: Employee) {
         self.employee = employee
     }
