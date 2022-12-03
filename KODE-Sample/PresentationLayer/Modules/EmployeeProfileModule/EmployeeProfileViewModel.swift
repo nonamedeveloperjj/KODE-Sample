@@ -23,7 +23,10 @@ final class EmployeeProfileViewModel: ObservableObject {
     }
     
     var phoneUrl: URL? {
-        return URL(string: "tel:\(employee.phone)")
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "tel"
+        urlComponents.path = employee.phone
+        return urlComponents.url
     }
     
     private var dateFormatter: DateFormatter {
