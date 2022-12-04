@@ -49,6 +49,10 @@ final class EmployeesListViewModel: ObservableObject {
         return rowModels.map({ RowProviderWrapper(rowProvider: $0) })
     }
     
+    func rowModel(with id: Int) -> Employee? {
+        return employees.first(where: { $0.id.hashValue == id })
+    }
+    
     private func isIncluded(employee: Employee, enteredText: String) -> Bool {
         if enteredText.isEmpty {
             return true

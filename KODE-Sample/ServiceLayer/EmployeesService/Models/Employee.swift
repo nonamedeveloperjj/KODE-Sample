@@ -77,13 +77,13 @@ struct Employee: Decodable, Identifiable {
 extension Employee {
     static let placeholderModel = Employee(
         id: "id",
-        avatarUrl: "",
+        avatarUrl: "https://raw.githubusercontent.com/nonamedeveloperjj/fake-avatars/main/avatars/8.png",
         firstName: "Андрей",
         lastName: "Иванов",
         userTag: "QA",
         department: "pr",
         position: "Specialist",
-        birthday: Date(),
+        birthday: Calendar.current.date(from: DateComponents(year: 1996, month: 6, day: 5)) ?? Date(),
         phone: "997-546-8116"
     )
 }
