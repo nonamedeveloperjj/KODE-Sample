@@ -97,13 +97,13 @@ struct CommonSearchBar: View {
             
 extension CommonSearchBar {
     struct Appearance {
-        let placeholderText: String = "Введи имя, тег, почту..."
+        let placeholderText: String = "EmployeesListModule.SearchBar.Placeholder".localized()
         let activeMagnifierImageName = "search_bar_magnifier"
         let clearImageName = "search_bar_clear"
         let sortImageName = "search_bar_sort"
         let backgroundColor: Color = Color(.systemGray6)
         let cancelButtonColor: Color = Color(hex: "#6534FF")
-        let cancelButtonText = "Отмена"
+        let cancelButtonText = "EmployeesListModule.SearchBar.CancelTitle".localized()
     }
 }
 

@@ -49,7 +49,7 @@ struct EmployeesListSortOptionView_Previews: PreviewProvider {
     static var previews: some View {
         EmployeesListSortOptionView(
             isSelected: true,
-            text: "По алфавиту",
+            text: "EmployeesListModule.EmployeesListSortView.AlphabetTitle".localized(),
             onSelect: {}
         )
     }

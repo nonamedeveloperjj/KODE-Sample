@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  KODE-Sample
+
+  Created by John Snow on 04/12/2022.
+  
+*/
+
+/*EmployeesListModule*/
+"EmployeesListModule.SearchBar.Placeholder" = "Enter name, tag, email...";
+"EmployeesListModule.SearchBar.CancelTitle" = "Cancel";
+"EmployeesListModule.EmptyState.Title" = "We didn't find anyone";
+"EmployeesListModule.EmptyState.Description" = "Try to edit your request";
+"EmployeesListModule.ErrorState.Title" = "Some genius broke everything";
+"EmployeesListModule.ErrorState.Description" = "We'll try to fix it quickly";
+"EmployeesListModule.ErrorState.TryAgainTitle" = "Try again";
+"EmployeesListModule.EmployeesListSortView.SortTitle" = "Sorting";
+"EmployeesListModule.EmployeesListSortView.AlphabetTitle" = "Alphabetically";
+"EmployeesListModule.EmployeesListSortView.BirthdayTitle" = "By birthday";
