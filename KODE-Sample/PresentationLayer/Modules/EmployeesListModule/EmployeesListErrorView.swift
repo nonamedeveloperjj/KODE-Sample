@@ -15,17 +15,17 @@ struct EmployeesListErrorView: View {
             Image("flying-saucer")
                 .resizable()
                 .frame(width: 56.0, height: 56.0)
-            Text("Какой-то сверхразум все сломал")
+            Text("EmployeesListModule.ErrorState.Title".localized())
                 .padding(.top, 8.0)
                 .font(.system(size: 17.0, weight: .semibold))
-            Text("Постараемся быстро починить")
+            Text("EmployeesListModule.ErrorState.Description".localized())
                 .padding(.top, 12.0)
                 .font(.system(size: 16.0))
                 .foregroundColor(Color(hex: "#97979B"))
             Button {
                 onRetry?()
             } label: {
-                Text("Попробовать снова")
+                Text("EmployeesListModule.ErrorState.TryAgainTitle".localized())
                     .foregroundColor(Color(hex: "#6534FF"))
                     .font(.system(size: 16.0, weight: .semibold))
             }

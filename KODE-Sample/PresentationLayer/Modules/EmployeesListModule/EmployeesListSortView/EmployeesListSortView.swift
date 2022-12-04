@@ -13,12 +13,12 @@ struct EmployeesListSortView: View {
     
     var body: some View {
         VStack(spacing: 0.0) {
-            Text("Сортировка")
+            Text("EmployeesListModule.EmployeesListSortView.SortTitle".localized())
                 .font(.system(size: 20.0, weight: .semibold))
                 .padding(EdgeInsets(top: 12.0, leading: 0.0, bottom: 38.0, trailing: 0.0))
             EmployeesListSortOptionView(
                 isSelected: selectedOption == .alphabet,
-                text: "По алфавиту",
+                text: "EmployeesListModule.EmployeesListSortView.AlphabetTitle".localized(),
                 onSelect: {
                     selectedOption = .alphabet
                     isOpen.toggle()
@@ -27,7 +27,7 @@ struct EmployeesListSortView: View {
             .padding(.bottom, 42.0)
             EmployeesListSortOptionView(
                 isSelected: selectedOption == .birtday,
-                text: "По дню рождения",
+                text: "EmployeesListModule.EmployeesListSortView.BirthdayTitle".localized(),
                 onSelect: {
                     selectedOption = .birtday
                     isOpen.toggle()
