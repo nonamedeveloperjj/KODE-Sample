@@ -63,6 +63,10 @@
 		5AB6E782293A29DE00798249 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 5AB6E784293A29DE00798249 /* Localizable.stringsdict */; };
 		5AB6E789293CEF5E00798249 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5AB6E78B293CEF5E00798249 /* Localizable.strings */; };
 		5ACD3F98293D491C0007420D /* String+localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACD3F97293D491C0007420D /* String+localized.swift */; };
+		5ACD3F9B293E1AA20007420D /* HorizontalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACD3F9A293E1AA20007420D /* HorizontalAlignment.swift */; };
+		5ACD3F9D293E1AD90007420D /* View+OptionalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACD3F9C293E1AD90007420D /* View+OptionalAlignment.swift */; };
+		5ACD3F9F293E1B840007420D /* SegmentedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACD3F9E293E1B840007420D /* SegmentedPicker.swift */; };
+		5ACD3FA1293F77A70007420D /* RectPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACD3FA0293F77A70007420D /* RectPreferenceKey.swift */; };
 		5ADE468C292BAF7F00903072 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADE468B292BAF7F00903072 /* BottomSheetView.swift */; };
 		5ADE4690292BCDF700903072 /* EmployeesListSortOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADE468F292BCDF700903072 /* EmployeesListSortOptionView.swift */; };
 		5ADE4692292CD9FB00903072 /* EmployeesSortOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADE4691292CD9FB00903072 /* EmployeesSortOrder.swift */; };
@@ -139,6 +143,10 @@
 		5AB6E78A293CEF5E00798249 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5AB6E78C293CEF6100798249 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5ACD3F97293D491C0007420D /* String+localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized.swift"; sourceTree = "<group>"; };
+		5ACD3F9A293E1AA20007420D /* HorizontalAlignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalAlignment.swift; sourceTree = "<group>"; };
+		5ACD3F9C293E1AD90007420D /* View+OptionalAlignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+OptionalAlignment.swift"; sourceTree = "<group>"; };
+		5ACD3F9E293E1B840007420D /* SegmentedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedPicker.swift; sourceTree = "<group>"; };
+		5ACD3FA0293F77A70007420D /* RectPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectPreferenceKey.swift; sourceTree = "<group>"; };
 		5ADE468B292BAF7F00903072 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		5ADE468F292BCDF700903072 /* EmployeesListSortOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesListSortOptionView.swift; sourceTree = "<group>"; };
 		5ADE4691292CD9FB00903072 /* EmployeesSortOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesSortOrder.swift; sourceTree = "<group>"; };
@@ -286,6 +294,7 @@
 		5A6C5A5928EC494D000C823E /* CommonViews */ = {
 			isa = PBXGroup;
 			children = (
+				5ACD3F99293E1A5D0007420D /* SegmentedPicker */,
 				5A6C5A5A28EC49C1000C823E /* CommonSearchBar.swift */,
 				5ADE468B292BAF7F00903072 /* BottomSheetView.swift */,
 			);
@@ -470,6 +479,17 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
+		5ACD3F99293E1A5D0007420D /* SegmentedPicker */ = {
+			isa = PBXGroup;
+			children = (
+				5ACD3F9A293E1AA20007420D /* HorizontalAlignment.swift */,
+				5ACD3F9C293E1AD90007420D /* View+OptionalAlignment.swift */,
+				5ACD3F9E293E1B840007420D /* SegmentedPicker.swift */,
+				5ACD3FA0293F77A70007420D /* RectPreferenceKey.swift */,
+			);
+			path = SegmentedPicker;
+			sourceTree = "<group>";
+		};
 		5ADE4693292CEAD300903072 /* EmployeesListSortView */ = {
 			isa = PBXGroup;
 			children = (
@@ -605,11 +625,13 @@
 				5A6C5A5B28EC49C1000C823E /* CommonSearchBar.swift in Sources */,
 				5A231F6029128DD4008BB159 /* Employee.swift in Sources */,
 				5A86B19D292FA919008DF166 /* RowProvider.swift in Sources */,
+				5ACD3F9B293E1AA20007420D /* HorizontalAlignment.swift in Sources */,
 				5A6C5A6328EEE7C7000C823E /* HTTPClient.swift in Sources */,
 				5A86B1C329364950008DF166 /* EmployeeProfileView.swift in Sources */,
 				5A6C5A7B290017C5000C823E /* HTTPClientAssembly.swift in Sources */,
 				5A86B1AE292FCC24008DF166 /* EmployeesListRowsFactoryStrategy.swift in Sources */,
 				5A86B1A5292FBB31008DF166 /* EmployeesListDateSeparatorRowModel.swift in Sources */,
+				5ACD3F9D293E1AD90007420D /* View+OptionalAlignment.swift in Sources */,
 				5A6C5A5E28EDE092000C823E /* Color+hex.swift in Sources */,
 				5A231F6529143339008BB159 /* EmployeesListRowView.swift in Sources */,
 				5ACD3F98293D491C0007420D /* String+localized.swift in Sources */,
@@ -618,10 +640,12 @@
 				5A6C5A7228F6EB7A000C823E /* EmployeesListAssembly.swift in Sources */,
 				5A6A50D728EB1C8C005009D8 /* EmployeesListView.swift in Sources */,
 				5A86B1B32934FF59008DF166 /* DateFormatter+applyCustomShortMonthSymbols.swift in Sources */,
+				5ACD3FA1293F77A70007420D /* RectPreferenceKey.swift in Sources */,
 				5A6C5A7F2902DC62000C823E /* NetworkError.swift in Sources */,
 				5ADE468C292BAF7F00903072 /* BottomSheetView.swift in Sources */,
 				5A6C5A7428F85940000C823E /* RequestComponents.swift in Sources */,
 				5A86B198292E83F9008DF166 /* View+OnFirstAppear.swift in Sources */,
+				5ACD3F9F293E1B840007420D /* SegmentedPicker.swift in Sources */,
 				5A231F5E29128DC3008BB159 /* EmployeesResponse.swift in Sources */,
 				5A231F4F290FEAAD008BB159 /* URLSession+Extension.swift in Sources */,
 				5ADE4692292CD9FB00903072 /* EmployeesSortOrder.swift in Sources */,
