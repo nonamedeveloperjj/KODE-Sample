@@ -55,7 +55,7 @@ private extension EmployeesListAlphabetFactoryStrategyTests {
                 firstName: "steve",
                 lastName: "lastName0",
                 userTag: "userTag0",
-                department: "department0",
+                department: .HR,
                 position: "position0",
                 birthday: Date(),
                 phone: "phone0"
@@ -66,7 +66,7 @@ private extension EmployeesListAlphabetFactoryStrategyTests {
                 firstName: "albert",
                 lastName: "lastName1",
                 userTag: "userTag1",
-                department: "department1",
+                department: .support,
                 position: "position1",
                 birthday: Date(),
                 phone: "phone1"
@@ -77,7 +77,7 @@ private extension EmployeesListAlphabetFactoryStrategyTests {
                 firstName: "thomas",
                 lastName: "lastName1",
                 userTag: "userTag1",
-                department: "department1",
+                department: .backend,
                 position: "position1",
                 birthday: Date(),
                 phone: "phone1"
