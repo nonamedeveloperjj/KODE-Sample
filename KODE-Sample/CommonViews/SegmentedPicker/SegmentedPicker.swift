@@ -108,14 +108,12 @@ private struct PickerView<Element, Content, Selection>: View where Content: View
                 vertical: selectionAlignment
             )
         ) {
-            if let selectedIndex = selectedIndex {
-                selection()
-                    .frame(width: frames[selectedIndex].width,
-                           height: frames[selectedIndex].height)
-                    .alignmentGuide(.horizontalCenterAlignment) { dimensions in
-                        dimensions[HorizontalAlignment.center]
-                    }
-            }
+            selection()
+                .frame(width: frames[selectedIndex].width,
+                       height: frames[selectedIndex].height)
+                .alignmentGuide(.horizontalCenterAlignment) { dimensions in
+                    dimensions[HorizontalAlignment.center]
+                }
             HStack(spacing: 0) {
                 ForEach(elements.indices, id: \.self) { index in
                     Button(

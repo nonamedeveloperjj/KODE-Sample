@@ -73,17 +73,14 @@ struct EmployeesListView: View {
                         selectedIndex: $selectedPickerIndex,
                         selectionAlignment: .bottom,
                         content: { item, isSelected in
-                            VStack {
-                                Text(item.title)
-                                    .font(
-                                        .system(size: 15, weight: isSelected ? .semibold : .medium)
-                                    )
-                                    .foregroundColor(
-                                        isSelected ? Color(hex: "#050510") : Color(hex: "#97979B")
-                                    )                                
-                            }
+                            Text(item.title)
+                                .font(
+                                    .system(size: 15, weight: isSelected ? .semibold : .medium)
+                                )
+                                .foregroundColor(
+                                    isSelected ? Color(hex: "#050510") : Color(hex: "#97979B")
+                                )
                                 .frame(height: 36.0)
-                                .contentShape(Rectangle())
                                 .padding(.horizontal, 12.0)
                         },
                             selection: {
