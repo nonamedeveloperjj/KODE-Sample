@@ -71,6 +71,20 @@ final class EmployeesFilterValidatorTests: XCTestCase {
         XCTAssertTrue(filteredEmployees.allSatisfy { ($0.firstName + " " + $0.lastName).contains(enteredText) })
     }
     
+    func testValidatorReturnsValidFilteredEmployeesWithEnteredUserTagAllFilter() {
+        // given
+        let employees = [TestData.employee1, TestData.employee2, TestData.employee3]
+        let enteredText = "userTag1"
+        let departmentFilter: EmployeeDepartmentFilter = .all
+        
+        // when
+        let filteredEmployees = filterValidator.filtered(employees: employees, enteredText: enteredText, departmentFilter: departmentFilter)
+        
+        // then
+        XCTAssertTrue(filteredEmployees.elementsEqual([TestData.employee1]))
+        XCTAssertTrue(filteredEmployees.allSatisfy { $0.userTag.lowercased().contains(enteredText.lowercased()) })
+    }
+    
     func testValidatorReturnsValidFilteredEmployeesWithEnteredTextSpecificFilter() {
         // given
         let employees = [TestData.employee1, TestData.employee2, TestData.employee3]
