@@ -135,7 +135,11 @@ struct EmployeesListView: View {
                     .disabled(shouldShowEmptyState)
                     .listStyle(.plain)
                     .ignoresSafeArea()
-                    .animation(nil, value: UUID())
+                    .transaction { transaction in
+                        /// Workaround due to animations bug inside NavigationView
+                        /// https://developer.apple.com/forums/thread/682779
+                        transaction.animation = nil
+                    }
                 }
                 
                 if isSortViewOpen {
