@@ -11,6 +11,7 @@ struct EmployeesListView: View {
     @ObservedObject private var viewModel: EmployeesListViewModel
     @State private var enteredText = ""
     @State private var isSortViewOpen = false
+    @State private var selectedPickerIndex: Int = 0
     @FocusState private var isSearchBarFocused: Bool
     
     private var errorView: some View {
@@ -64,10 +65,41 @@ struct EmployeesListView: View {
     private var contentView: some View {
         NavigationView {
             ZStack {
-                VStack {
+                VStack(spacing: 0.0) {
                     searchBar
                     
-                    let rowProviderWrappers = viewModel.rowProviders(with: enteredText)
+                    SegmentedPicker(
+                        EmployeeDepartmentFilter.allCases,
+                        selectedIndex: $selectedPickerIndex,
+                        selectionAlignment: .bottom,
+                        content: { item, isSelected in
+                            Text(item.title)
+                                .font(
+                                    .system(size: 15, weight: isSelected ? .semibold : .medium)
+                                )
+                                .foregroundColor(
+                                    isSelected ? Color(hex: "#050510") : Color(hex: "#97979B")
+                                )
+                                .frame(height: 36.0)
+                                .padding(.horizontal, 12.0)
+                        },
+                            selection: {
+                                VStack(spacing: 0) {
+                                    Spacer()
+                                    Color(hex: "#6534FF").frame(height: 2)
+                                }
+                            }
+                    )
+                    .animation(.easeIn(duration: 0.3), value: selectedPickerIndex)
+                    .padding(.top, 16.0)
+                    
+                    Divider()
+                        .frame(height: 0.33)
+                    
+                    let rowProviderWrappers = viewModel.rowProviders(
+                        with: enteredText,
+                        departmentFilter: EmployeeDepartmentFilter(rawValue: selectedPickerIndex)
+                    )
                     let shouldShowEmptyState = rowProviderWrappers.isEmpty
                     
                     List(rowProviderWrappers) { rowProviderWrapper in
@@ -135,7 +167,8 @@ struct EmployeesListView_Previews: PreviewProvider {
             employeesService: EmployeesService(httpClient: HTTPClientAssembly().create()),
             rowsFactory: EmployeesListRowsFactory(
                 strategyProvider: EmployeesListRowsFactoryStrategyProvider()
-            )
+            ),
+            employeesFilterValidator: EmployeesFilterValidator()
         )
         EmployeesListView(viewModel: viewModel)
     }

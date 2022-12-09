@@ -11,17 +11,26 @@ import XCTest
 final class EmployeesListViewModelTests: XCTestCase {
     private var employeesServiceMock: EmployeesServiceProtocolMock!
     private var rowsFactoryMock: EmployeesListRowsFactoryProtocolMock!
+    private var employeesFilterValidator: EmployeesFilterValidatorProtocolMock!
     private var viewModel: EmployeesListViewModel!
     
     override func setUpWithError() throws {
         try super.setUpWithError()
         employeesServiceMock = EmployeesServiceProtocolMock()
         rowsFactoryMock = EmployeesListRowsFactoryProtocolMock()
-        viewModel = EmployeesListViewModel(employeesService: employeesServiceMock, rowsFactory: rowsFactoryMock)
+        employeesFilterValidator = EmployeesFilterValidatorProtocolMock()
+        
+        viewModel = EmployeesListViewModel(
+            employeesService: employeesServiceMock,
+            rowsFactory: rowsFactoryMock,
+            employeesFilterValidator: employeesFilterValidator
+        )
     }
     
     override func tearDownWithError() throws {
         employeesServiceMock = nil
+        rowsFactoryMock = nil
+        employeesFilterValidator = nil
         viewModel = nil
         try super.tearDownWithError()
     }
@@ -95,7 +104,7 @@ final class EmployeesListViewModelTests: XCTestCase {
     
     func testRowProvidersCreatedProperly() {
         // given
-        let employeesResponse = EmployeesResponse(items: [TestData.employee2, TestData.employee1])
+        let employeesResponse = EmployeesResponse(items: [TestData.employee1, TestData.employee2])
         
         employeesServiceMock.fetchEmployeesCompletionClosure = { completion in
             let result: Result<EmployeesResponse, Error> = .success(employeesResponse)
@@ -103,30 +112,31 @@ final class EmployeesListViewModelTests: XCTestCase {
         }
         viewModel.fetchEmployees()
         let enteredText = "name1"
+        let departmentFilter: EmployeeDepartmentFilter = .frontend
         let rowProviders = [EmployeesListDateSeparatorRowModel(date: "2023")]
+        employeesFilterValidator.filteredEmployeesEnteredTextDepartmentFilterReturnValue = employeesResponse.items
         rowsFactoryMock.createRowModelsFromSortOrderReturnValue = rowProviders
         
         // when
-        let rowProviderWrappers = viewModel.rowProviders(with: enteredText)
+        let rowProviderWrappers = viewModel.rowProviders(with: enteredText, departmentFilter: departmentFilter)
         
         // then
+        XCTAssertEqual(employeesFilterValidator.filteredEmployeesEnteredTextDepartmentFilterCallsCount, 1)
+        XCTAssertEqual(employeesFilterValidator.filteredEmployeesEnteredTextDepartmentFilterReceivedArguments!.employees, employeesResponse.items)
+        XCTAssertEqual(employeesFilterValidator.filteredEmployeesEnteredTextDepartmentFilterReceivedArguments!.enteredText, enteredText)
+        XCTAssertEqual(employeesFilterValidator.filteredEmployeesEnteredTextDepartmentFilterReceivedArguments!.departmentFilter, departmentFilter)
+        
         XCTAssertEqual(rowsFactoryMock.createRowModelsFromSortOrderCallsCount, 1)
         XCTAssertEqual(rowsFactoryMock.createRowModelsFromSortOrderReceivedArguments!.sortOrder, viewModel.employeesSortState)
         XCTAssertTrue(
             rowsFactoryMock.createRowModelsFromSortOrderReceivedArguments!.employees
-                .elementsEqual(viewModel.employees.filter({ isIncluded(employee: $0, enteredText: enteredText) })))
-        XCTAssertTrue(
-            rowProviderWrappers.map({ $0.rowProvider as! EmployeesListDateSeparatorRowModel })
-                .elementsEqual(rowProviders)
+                .elementsEqual(employeesFilterValidator.filteredEmployeesEnteredTextDepartmentFilterReturnValue)
         )
-    }
-    
-    private func isIncluded(employee: Employee, enteredText: String) -> Bool {
-        if enteredText.isEmpty {
-            return true
-        }
-        let fullName = employee.firstName + " " + employee.lastName
-        return fullName.lowercased().contains(enteredText.lowercased())
+
+        XCTAssertTrue(
+            rowProviderWrappers
+                .elementsEqual(rowsFactoryMock.createRowModelsFromSortOrderReturnValue.map { RowProviderWrapper(rowProvider: $0) })
+        )
     }
 }
 
@@ -144,7 +154,7 @@ private extension EmployeesListViewModelTests {
             firstName: "name1",
             lastName: "name1",
             userTag: "userTag",
-            department: "dep1",
+            department: .frontend,
             position: "pos1",
             birthday: dateFormatter.date(from: "2001-04-01T11:42:00")!,
             phone: "123"
@@ -156,7 +166,7 @@ private extension EmployeesListViewModelTests {
             firstName: "name2",
             lastName: "name2",
             userTag: "userTag",
-            department: "dep2",
+            department: .QA,
             position: "pos2",
             birthday: dateFormatter.date(from: "2000-11-09T13:02:00")!,
             phone: "321"

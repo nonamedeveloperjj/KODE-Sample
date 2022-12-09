@@ -101,7 +101,7 @@ private extension EmployeesListBirthdayFactoryStrategyTests {
                 firstName: "steve",
                 lastName: "lastName0",
                 userTag: "userTag0",
-                department: "department0",
+                department: .backOffice,
                 position: "position0",
                 birthday: calendar.date(from: DateComponents(year: 1990, month: 2, day: 12))!,
                 phone: "phone0"
@@ -112,7 +112,7 @@ private extension EmployeesListBirthdayFactoryStrategyTests {
                 firstName: "albert",
                 lastName: "lastName1",
                 userTag: "userTag1",
-                department: "department1",
+                department: .android,
                 position: "position1",
                 birthday: calendar.date(from: DateComponents(year: 1997, month: 7, day: 12))!,
                 phone: "phone1"
@@ -123,7 +123,7 @@ private extension EmployeesListBirthdayFactoryStrategyTests {
                 firstName: "thomas",
                 lastName: "lastName1",
                 userTag: "userTag1",
-                department: "department1",
+                department: .iOS,
                 position: "position1",
                 birthday: calendar.date(from: DateComponents(year: 1992, month: 12, day: 29))!,
                 phone: "phone1"
@@ -134,7 +134,7 @@ private extension EmployeesListBirthdayFactoryStrategyTests {
                 firstName: "thomas",
                 lastName: "lastName1",
                 userTag: "userTag1",
-                department: "department1",
+                department: .management,
                 position: "position1",
                 birthday: calendar.date(from: DateComponents(year: 1999, month: 3, day: 5))!,
                 phone: "phone1"
@@ -145,7 +145,7 @@ private extension EmployeesListBirthdayFactoryStrategyTests {
                 firstName: "thomas",
                 lastName: "lastName1",
                 userTag: "userTag1",
-                department: "department1",
+                department: .analytics,
                 position: "position1",
                 birthday: calendar.date(from: DateComponents(year: 1992, month: 1, day: 22))!,
                 phone: "phone1"
@@ -156,7 +156,7 @@ private extension EmployeesListBirthdayFactoryStrategyTests {
                 firstName: "thomas",
                 lastName: "lastName1",
                 userTag: "userTag1",
-                department: "department1",
+                department: .design,
                 position: "position1",
                 birthday: calendar.date(from: DateComponents(year: 1992, month: 8, day: 10))!,
                 phone: "phone1"
@@ -167,7 +167,7 @@ private extension EmployeesListBirthdayFactoryStrategyTests {
                 firstName: "thomas",
                 lastName: "lastName1",
                 userTag: "userTag1",
-                department: "department1",
+                department: .support,
                 position: "position1",
                 birthday: calendar.date(from: DateComponents(year: 1992, month: 4, day: 16))!,
                 phone: "phone1"
@@ -178,7 +178,7 @@ private extension EmployeesListBirthdayFactoryStrategyTests {
                 firstName: "thomas",
                 lastName: "lastName1",
                 userTag: "userTag1",
-                department: "department1",
+                department: .QA,
                 position: "position1",
                 birthday: calendar.date(from: DateComponents(year: 1992, month: 9, day: 11))!,
                 phone: "phone1"
@@ -189,7 +189,7 @@ private extension EmployeesListBirthdayFactoryStrategyTests {
                 firstName: "thomas",
                 lastName: "lastName1",
                 userTag: "userTag1",
-                department: "department1",
+                department: .frontend,
                 position: "position1",
                 birthday: calendar.date(from: DateComponents(year: 1992, month: 10, day: 27))!,
                 phone: "phone1"
@@ -200,7 +200,7 @@ private extension EmployeesListBirthdayFactoryStrategyTests {
                 firstName: "thomas",
                 lastName: "lastName1",
                 userTag: "userTag1",
-                department: "department1",
+                department: .management,
                 position: "position1",
                 birthday: calendar.date(from: DateComponents(year: 1992, month: 12, day: 31))!,
                 phone: "phone1"

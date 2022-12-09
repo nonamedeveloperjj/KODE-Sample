@@ -17,3 +17,16 @@
 "EmployeesListModule.EmployeesListSortView.SortTitle" = "Sorting";
 "EmployeesListModule.EmployeesListSortView.AlphabetTitle" = "Alphabetically";
 "EmployeesListModule.EmployeesListSortView.BirthdayTitle" = "By birthday";
+"EmployeesListModule.DepartmentFilter.All" = "All";
+"EmployeesListModule.DepartmentFilter.Designers" = "Designers";
+"EmployeesListModule.DepartmentFilter.Analysts" = "Analysts";
+"EmployeesListModule.DepartmentFilter.Managers" = "Managers";
+"EmployeesListModule.DepartmentFilter.iOS" = "iOS";
+"EmployeesListModule.DepartmentFilter.Android" = "Android";
+"EmployeesListModule.DepartmentFilter.Backend" = "Backend";
+"EmployeesListModule.DepartmentFilter.Support" = "Support";
+"EmployeesListModule.DepartmentFilter.QA" = "QA";
+"EmployeesListModule.DepartmentFilter.BackOffice" = "Back Office";
+"EmployeesListModule.DepartmentFilter.Frontend" = "Frontend";
+"EmployeesListModule.DepartmentFilter.PR" = "PR";
+"EmployeesListModule.DepartmentFilter.HR" = "HR";

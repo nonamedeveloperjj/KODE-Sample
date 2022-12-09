@@ -13,7 +13,8 @@ final class EmployeesListAssembly {
         let factoryStrategyProvider = EmployeesListRowsFactoryStrategyProvider()
         let viewModel = EmployeesListViewModel(
             employeesService: employeesService,
-            rowsFactory: EmployeesListRowsFactory(strategyProvider: factoryStrategyProvider)
+            rowsFactory: EmployeesListRowsFactory(strategyProvider: factoryStrategyProvider),
+            employeesFilterValidator: EmployeesFilterValidator()
         )
         let view = EmployeesListView(viewModel: viewModel)
         return view

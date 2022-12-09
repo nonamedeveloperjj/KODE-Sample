@@ -32,8 +32,13 @@ final class EmployeesService: EmployeesServiceProtocol {
             DispatchQueue.main.async {
                 switch result {
                 case let .success(data):
-                    if let data = data, let employeesResponse = try? JSONDecoder().decode(EmployeesResponse.self, from: data) {
-                        completion(.success(employeesResponse))
+                    if let data = data {
+                        do {
+                            let employeesResponse = try JSONDecoder().decode(EmployeesResponse.self, from: data)
+                            completion(.success(employeesResponse))
+                        } catch {
+                            completion(.failure(error))
+                        }
                     }
                 case let .failure(error):
                     completion(.failure(error))
