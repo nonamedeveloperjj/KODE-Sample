@@ -70,6 +70,7 @@
 		5ACD3FA52940CB660007420D /* RowProviderWrapper+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACD3FA42940CB660007420D /* RowProviderWrapper+Equatable.swift */; };
 		5ACD3FA72941F1F00007420D /* EmployeesFilterValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACD3FA62941F1EF0007420D /* EmployeesFilterValidator.swift */; };
 		5ACD3FA92941F4090007420D /* EmployeesFilterValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACD3FA82941F4090007420D /* EmployeesFilterValidatorTests.swift */; };
+		5ACD3FAB294372B50007420D /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACD3FAA294372B50007420D /* LazyView.swift */; };
 		5ADE468C292BAF7F00903072 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADE468B292BAF7F00903072 /* BottomSheetView.swift */; };
 		5ADE4690292BCDF700903072 /* EmployeesListSortOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADE468F292BCDF700903072 /* EmployeesListSortOptionView.swift */; };
 		5ADE4692292CD9FB00903072 /* EmployeesSortOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADE4691292CD9FB00903072 /* EmployeesSortOrder.swift */; };
@@ -153,6 +154,7 @@
 		5ACD3FA42940CB660007420D /* RowProviderWrapper+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RowProviderWrapper+Equatable.swift"; sourceTree = "<group>"; };
 		5ACD3FA62941F1EF0007420D /* EmployeesFilterValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesFilterValidator.swift; sourceTree = "<group>"; };
 		5ACD3FA82941F4090007420D /* EmployeesFilterValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesFilterValidatorTests.swift; sourceTree = "<group>"; };
+		5ACD3FAA294372B50007420D /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
 		5ADE468B292BAF7F00903072 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		5ADE468F292BCDF700903072 /* EmployeesListSortOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesListSortOptionView.swift; sourceTree = "<group>"; };
 		5ADE4691292CD9FB00903072 /* EmployeesSortOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesSortOrder.swift; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 				5ACD3F99293E1A5D0007420D /* SegmentedPicker */,
 				5A6C5A5A28EC49C1000C823E /* CommonSearchBar.swift */,
 				5ADE468B292BAF7F00903072 /* BottomSheetView.swift */,
+				5ACD3FAA294372B50007420D /* LazyView.swift */,
 			);
 			path = CommonViews;
 			sourceTree = "<group>";
@@ -640,6 +643,7 @@
 				5A86B1C329364950008DF166 /* EmployeeProfileView.swift in Sources */,
 				5A6C5A7B290017C5000C823E /* HTTPClientAssembly.swift in Sources */,
 				5A86B1AE292FCC24008DF166 /* EmployeesListRowsFactoryStrategy.swift in Sources */,
+				5ACD3FAB294372B50007420D /* LazyView.swift in Sources */,
 				5A86B1A5292FBB31008DF166 /* EmployeesListDateSeparatorRowModel.swift in Sources */,
 				5ACD3F9D293E1AD90007420D /* View+OptionalAlignment.swift in Sources */,
 				5A6C5A5E28EDE092000C823E /* Color+hex.swift in Sources */,

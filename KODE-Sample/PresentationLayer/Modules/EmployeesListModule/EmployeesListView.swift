@@ -83,12 +83,12 @@ struct EmployeesListView: View {
                                 .frame(height: 36.0)
                                 .padding(.horizontal, 12.0)
                         },
-                            selection: {
-                                VStack(spacing: 0) {
-                                    Spacer()
-                                    Color(hex: "#6534FF").frame(height: 2)
-                                }
+                        selection: {
+                            VStack(spacing: 0) {
+                                Spacer()
+                                Color(hex: "#6534FF").frame(height: 2)
                             }
+                        }
                     )
                     .animation(.easeIn(duration: 0.3), value: selectedPickerIndex)
                     .padding(.top, 16.0)
@@ -103,22 +103,21 @@ struct EmployeesListView: View {
                     let shouldShowEmptyState = rowProviderWrappers.isEmpty
                     
                     List(rowProviderWrappers) { rowProviderWrapper in
-                        let rowModel = viewModel.rowModel(with: rowProviderWrapper.id)
                         rowProviderWrapper.rowProvider.provideRow()
                             .redacted(reason: viewModel.isLoadingEmployees ? .placeholder : [])
                             .listRowSeparator(.hidden)
                             .listRowInsets(EdgeInsets())
                             .overlay {
                                 NavigationLink {
-                                    if let employee = rowModel {
-                                        EmployeeProfileAssembly().createModule(with: employee)
+                                    if let employee = viewModel.rowModel(with: rowProviderWrapper.id) {
+                                        LazyView(EmployeeProfileAssembly().createModule(with: employee))
                                     }
                                 } label: {
                                     EmptyView()
                                 }
                                 .navigationTitle("")
                                 .opacity(0.0)
-                                .disabled(viewModel.isLoadingEmployees || rowModel == nil)
+                                .disabled(viewModel.isLoadingEmployees)
                             }
                     }.refreshable {
                         viewModel.fetchEmployees()
