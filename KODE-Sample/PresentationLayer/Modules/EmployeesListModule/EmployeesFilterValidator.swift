@@ -33,9 +33,11 @@ final class EmployeesFilterValidator: EmployeesFilterValidatorProtocol {
         enteredText: String,
         departmentFilter: EmployeeDepartmentFilter
     ) -> Bool {
+        let lowercasedEnteredText = enteredText.lowercased()
         let fullName = employee.firstName + " " + employee.lastName
-        let isNameIncluded = enteredText.isEmpty || fullName.lowercased().contains(enteredText.lowercased())
+        let isNameIncluded = enteredText.isEmpty || fullName.lowercased().contains(lowercasedEnteredText)
         let isDepartmentIncluded = departmentFilter == .all || departmentFilter.department() == employee.department
-        return isNameIncluded && isDepartmentIncluded
+        let isUserTagIncluded = employee.userTag.lowercased().contains(lowercasedEnteredText)
+        return (isNameIncluded || isUserTagIncluded) && isDepartmentIncluded
     }
 }
