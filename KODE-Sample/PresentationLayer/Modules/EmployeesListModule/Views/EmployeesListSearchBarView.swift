@@ -1,5 +1,5 @@
 //
-//  CommonSearchBar.swift
+//  EmployeesListSearchBarView.swift
 //  KODE-Sample
 //
 //  Created by John Snow on 04/10/2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CommonSearchBar: View {
+struct EmployeesListSearchBarView: View {
     @Binding private var enteredText: String
     @Binding private var isBottomSheetOpen: Bool
     @Binding private var sortState: EmployeesSortOrder
@@ -96,7 +96,7 @@ struct CommonSearchBar: View {
     }
 }
             
-extension CommonSearchBar {
+extension EmployeesListSearchBarView {
     struct Appearance {
         let placeholderText: String = "EmployeesListModule.SearchBar.Placeholder".localized()
         let activeMagnifierImageName = "search_bar_magnifier"
@@ -110,7 +110,7 @@ extension CommonSearchBar {
 
 struct CommonSearchBar_Previews: PreviewProvider {
     static var previews: some View {
-        CommonSearchBar(
+        EmployeesListSearchBarView(
             enteredText: .constant(""),
             isFocused: FocusState<Bool>().projectedValue,
             isBottomSheetOpen: .constant(false),

@@ -54,7 +54,7 @@ struct EmployeesListView: View {
     }
     
     private var searchBar: some View {
-        CommonSearchBar(
+        EmployeesListSearchBarView(
             enteredText: $enteredText,
             isFocused: $isSearchBarFocused,
             isBottomSheetOpen: $isSortViewOpen,
