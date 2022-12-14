@@ -60,6 +60,7 @@ struct EmployeesListView: View {
             isBottomSheetOpen: $isSortViewOpen,
             sortState: $viewModel.employeesSortState
         )
+        .padding(.top, 18.0)
     }
     
     private var contentView: some View {
@@ -133,11 +134,14 @@ struct EmployeesListView: View {
                     }
                     .disabled(shouldShowEmptyState)
                     .listStyle(.plain)
-                    .ignoresSafeArea()
                     .transaction { transaction in
                         /// Workaround due to animations bug inside NavigationView
                         /// https://developer.apple.com/forums/thread/682779
                         transaction.animation = nil
+                    }
+                    .safeAreaInset(edge: .top) {
+                        Spacer()
+                            .frame(height: 16.0)
                     }
                 }
                 
