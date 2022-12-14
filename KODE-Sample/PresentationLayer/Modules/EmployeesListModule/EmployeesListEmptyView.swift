@@ -13,7 +13,7 @@ struct EmployeesListEmptyView: View {
             Image("empty_state_magnifying_glass")
                 .resizable()
                 .frame(width: 56.0, height: 56.0)
-                .padding(.top, 80.0)
+                .padding(.top, 75.0)
             Text("EmployeesListModule.EmptyState.Title".localized())
                 .font(.system(size: 17.0, weight: .semibold))
                 .padding(.top, 8.0)
