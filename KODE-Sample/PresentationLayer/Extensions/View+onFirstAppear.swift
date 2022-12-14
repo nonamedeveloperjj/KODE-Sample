@@ -1,5 +1,5 @@
 //
-//  View+OnFirstAppear.swift
+//  View+onFirstAppear.swift
 //  KODE-Sample
 //
 //  Created by John Snow on 23/11/2022.
