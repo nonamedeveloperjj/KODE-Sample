@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class EmployeeProfileViewModel: ObservableObject {
+final class EmployeeProfileViewModel {
     let employee: Employee
     
     var formattedBirthday: String {
@@ -18,7 +18,7 @@ final class EmployeeProfileViewModel: ObservableObject {
     
     var employeeAge: String {
         let yearsOld = Calendar.current.dateComponents([.year], from: employee.birthday, to: Date()).year ?? 0
-        let localizedFormat = NSLocalizedString("years_old", comment: "")
+        let localizedFormat = "years_old".localized()
         return String(format: localizedFormat, yearsOld)
     }
     

@@ -11,6 +11,7 @@ struct EmployeesListView: View {
     @ObservedObject private var viewModel: EmployeesListViewModel
     @State private var enteredText = ""
     @State private var isSortViewOpen = false
+    @State private var selectedPickerIndex: Int = 0
     @FocusState private var isSearchBarFocused: Bool
     
     private var errorView: some View {
@@ -53,40 +54,71 @@ struct EmployeesListView: View {
     }
     
     private var searchBar: some View {
-        CommonSearchBar(
+        EmployeesListSearchBarView(
             enteredText: $enteredText,
             isFocused: $isSearchBarFocused,
             isBottomSheetOpen: $isSortViewOpen,
             sortState: $viewModel.employeesSortState
         )
+        .padding(.top, 18.0)
     }
     
     private var contentView: some View {
         NavigationView {
             ZStack {
-                VStack {
+                VStack(spacing: 0.0) {
                     searchBar
                     
-                    let rowProviderWrappers = viewModel.rowProviders(with: enteredText)
+                    SegmentedPicker(
+                        EmployeeDepartment.allCases,
+                        selectedIndex: $selectedPickerIndex,
+                        selectionAlignment: .bottom,
+                        content: { item, isSelected in
+                            Text(item.title)
+                                .font(
+                                    .system(size: 15, weight: isSelected ? .semibold : .medium)
+                                )
+                                .foregroundColor(
+                                    isSelected ? Color(hex: "#050510") : Color(hex: "#97979B")
+                                )
+                                .frame(height: 36.0)
+                                .padding(.horizontal, 12.0)
+                        },
+                        selection: {
+                            VStack(spacing: 0) {
+                                Spacer()
+                                Color(hex: "#6534FF").frame(height: 2)
+                            }
+                        }
+                    )
+                    .animation(.easeIn(duration: 0.3), value: selectedPickerIndex)
+                    .padding(.top, 16.0)
+                    
+                    Divider()
+                        .frame(height: 0.33)
+                    
+                    let rowProviderWrappers = viewModel.rowProviders(
+                        with: enteredText,
+                        departmentFilter: EmployeeDepartment(rawValue: selectedPickerIndex)
+                    )
                     let shouldShowEmptyState = rowProviderWrappers.isEmpty
                     
                     List(rowProviderWrappers) { rowProviderWrapper in
-                        let rowModel = viewModel.rowModel(with: rowProviderWrapper.id)
                         rowProviderWrapper.rowProvider.provideRow()
                             .redacted(reason: viewModel.isLoadingEmployees ? .placeholder : [])
                             .listRowSeparator(.hidden)
                             .listRowInsets(EdgeInsets())
                             .overlay {
                                 NavigationLink {
-                                    if let employee = rowModel {
-                                        EmployeeProfileAssembly().createModule(with: employee)
+                                    if let employee = viewModel.rowModel(with: rowProviderWrapper.id) {
+                                        LazyView(EmployeeProfileAssembly().createModule(with: employee))
                                     }
                                 } label: {
                                     EmptyView()
                                 }
                                 .navigationTitle("")
                                 .opacity(0.0)
-                                .disabled(viewModel.isLoadingEmployees || rowModel == nil)
+                                .disabled(viewModel.isLoadingEmployees)
                             }
                     }.refreshable {
                         viewModel.fetchEmployees()
@@ -102,8 +134,15 @@ struct EmployeesListView: View {
                     }
                     .disabled(shouldShowEmptyState)
                     .listStyle(.plain)
-                    .ignoresSafeArea()
-                    .animation(nil, value: UUID())
+                    .transaction { transaction in
+                        /// Workaround due to animations bug inside NavigationView
+                        /// https://developer.apple.com/forums/thread/682779
+                        transaction.animation = nil
+                    }
+                    .safeAreaInset(edge: .top) {
+                        Spacer()
+                            .frame(height: 16.0)
+                    }
                 }
                 
                 if isSortViewOpen {
@@ -135,7 +174,8 @@ struct EmployeesListView_Previews: PreviewProvider {
             employeesService: EmployeesService(httpClient: HTTPClientAssembly().create()),
             rowsFactory: EmployeesListRowsFactory(
                 strategyProvider: EmployeesListRowsFactoryStrategyProvider()
-            )
+            ),
+            employeesFilter: EmployeesFilter()
         )
         EmployeesListView(viewModel: viewModel)
     }

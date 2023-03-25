@@ -1,5 +1,5 @@
 //
-//  CommonSearchBar.swift
+//  EmployeesListSearchBarView.swift
 //  KODE-Sample
 //
 //  Created by John Snow on 04/10/2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CommonSearchBar: View {
+struct EmployeesListSearchBarView: View {
     @Binding private var enteredText: String
     @Binding private var isBottomSheetOpen: Bool
     @Binding private var sortState: EmployeesSortOrder
@@ -41,16 +41,16 @@ struct CommonSearchBar: View {
             isFocused.wrappedValue = false
             enteredText = ""
         }
-        .frame(height: 18.0)
-        .padding(.trailing, 10)
+        .padding(.trailing, 28)
+        .font(.system(size: 14.0, weight: .semibold))
         .foregroundColor(appearance.cancelButtonColor)
     }
     
     var body: some View {
-        HStack {
+        HStack(spacing: 0.0) {
             TextField(appearance.placeholderText, text: $enteredText)
                 .focused(isFocused)
-                .padding(10)
+                .padding(9)
                 .padding(.horizontal, 34)
                 .background(Color(.systemGray6))
                 .cornerRadius(16)
@@ -72,7 +72,8 @@ struct CommonSearchBar: View {
                         }
                     }
                 )
-                .padding(.horizontal, 16)
+                .padding(.leading, 16)
+                .padding(.trailing, isFocused.wrappedValue ? 12.0 : 16.0)
             
             if isFocused.wrappedValue {
                 cancelButton
@@ -95,7 +96,7 @@ struct CommonSearchBar: View {
     }
 }
             
-extension CommonSearchBar {
+extension EmployeesListSearchBarView {
     struct Appearance {
         let placeholderText: String = "EmployeesListModule.SearchBar.Placeholder".localized()
         let activeMagnifierImageName = "search_bar_magnifier"
@@ -109,7 +110,7 @@ extension CommonSearchBar {
 
 struct CommonSearchBar_Previews: PreviewProvider {
     static var previews: some View {
-        CommonSearchBar(
+        EmployeesListSearchBarView(
             enteredText: .constant(""),
             isFocused: FocusState<Bool>().projectedValue,
             isBottomSheetOpen: .constant(false),

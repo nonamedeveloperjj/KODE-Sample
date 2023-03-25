@@ -19,7 +19,7 @@ struct EmployeesListErrorView: View {
                 .padding(.top, 8.0)
                 .font(.system(size: 17.0, weight: .semibold))
             Text("EmployeesListModule.ErrorState.Description".localized())
-                .padding(.top, 12.0)
+                .padding(.top, 14.0)
                 .font(.system(size: 16.0))
                 .foregroundColor(Color(hex: "#97979B"))
             Button {
@@ -29,7 +29,7 @@ struct EmployeesListErrorView: View {
                     .foregroundColor(Color(hex: "#6534FF"))
                     .font(.system(size: 16.0, weight: .semibold))
             }
-            .padding(.top, 12.0)
+            .padding(.top, 14.0)
         }
     }
 }

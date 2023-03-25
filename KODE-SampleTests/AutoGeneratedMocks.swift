@@ -27,6 +27,31 @@ import AppKit
 
 
 
+class EmployeesFilterProtocolMock: EmployeesFilterProtocol {
+
+    //MARK: - filtered
+
+    var filteredEmployeesEnteredTextDepartmentFilterCallsCount = 0
+    var filteredEmployeesEnteredTextDepartmentFilterCalled: Bool {
+        return filteredEmployeesEnteredTextDepartmentFilterCallsCount > 0
+    }
+    var filteredEmployeesEnteredTextDepartmentFilterReceivedArguments: (employees: [Employee], enteredText: String, departmentFilter: EmployeeDepartment?)?
+    var filteredEmployeesEnteredTextDepartmentFilterReceivedInvocations: [(employees: [Employee], enteredText: String, departmentFilter: EmployeeDepartment?)] = []
+    var filteredEmployeesEnteredTextDepartmentFilterReturnValue: [Employee]!
+    var filteredEmployeesEnteredTextDepartmentFilterClosure: (([Employee], String, EmployeeDepartment?) -> [Employee])?
+
+    func filtered(employees: [Employee], enteredText: String, departmentFilter: EmployeeDepartment?) -> [Employee] {
+        filteredEmployeesEnteredTextDepartmentFilterCallsCount += 1
+        filteredEmployeesEnteredTextDepartmentFilterReceivedArguments = (employees: employees, enteredText: enteredText, departmentFilter: departmentFilter)
+        filteredEmployeesEnteredTextDepartmentFilterReceivedInvocations.append((employees: employees, enteredText: enteredText, departmentFilter: departmentFilter))
+        if let filteredEmployeesEnteredTextDepartmentFilterClosure = filteredEmployeesEnteredTextDepartmentFilterClosure {
+            return filteredEmployeesEnteredTextDepartmentFilterClosure(employees, enteredText, departmentFilter)
+        } else {
+            return filteredEmployeesEnteredTextDepartmentFilterReturnValue
+        }
+    }
+
+}
 class EmployeesListRowsFactoryProtocolMock: EmployeesListRowsFactoryProtocol {
 
     //MARK: - createRowModels

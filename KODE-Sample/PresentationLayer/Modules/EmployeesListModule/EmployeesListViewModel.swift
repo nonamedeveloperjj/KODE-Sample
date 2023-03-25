@@ -19,10 +19,16 @@ final class EmployeesListViewModel: ObservableObject {
     
     private let employeesService: EmployeesServiceProtocol
     private let rowsFactory: EmployeesListRowsFactoryProtocol
+    private let employeesFilter: EmployeesFilterProtocol
     
-    init(employeesService: EmployeesServiceProtocol, rowsFactory: EmployeesListRowsFactoryProtocol) {
+    init(
+        employeesService: EmployeesServiceProtocol,
+        rowsFactory: EmployeesListRowsFactoryProtocol,
+        employeesFilter: EmployeesFilterProtocol
+    ) {
         self.employeesService = employeesService
         self.rowsFactory = rowsFactory
+        self.employeesFilter = employeesFilter
     }
     
     func fetchEmployees() {
@@ -43,22 +49,18 @@ final class EmployeesListViewModel: ObservableObject {
         }
     }
     
-    func rowProviders(with enteredText: String) -> [RowProviderWrapper] {
-        let filteredEmployees = employees.filter({ isIncluded(employee: $0, enteredText: enteredText) })
+    func rowProviders(with enteredText: String, departmentFilter: EmployeeDepartment?) -> [RowProviderWrapper] {
+        let filteredEmployees = employeesFilter.filtered(
+            employees: employees,
+            enteredText: enteredText,
+            departmentFilter: departmentFilter
+        )
         let rowModels = rowsFactory.createRowModels(from: filteredEmployees, sortOrder: employeesSortState)
         return rowModels.map({ RowProviderWrapper(rowProvider: $0) })
     }
     
     func rowModel(with id: Int) -> Employee? {
         return employees.first(where: { $0.id.hashValue == id })
-    }
-    
-    private func isIncluded(employee: Employee, enteredText: String) -> Bool {
-        if enteredText.isEmpty {
-            return true
-        }
-        let fullName = employee.firstName + " " + employee.lastName
-        return fullName.lowercased().contains(enteredText.lowercased())
     }
     
     private func sortEmployees(sortState: EmployeesSortOrder) {
