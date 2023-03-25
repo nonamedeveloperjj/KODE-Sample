@@ -27,7 +27,7 @@ import AppKit
 
 
 
-class EmployeesFilterValidatorProtocolMock: EmployeesFilterValidatorProtocol {
+class EmployeesFilterProtocolMock: EmployeesFilterProtocol {
 
     //MARK: - filtered
 
@@ -35,12 +35,12 @@ class EmployeesFilterValidatorProtocolMock: EmployeesFilterValidatorProtocol {
     var filteredEmployeesEnteredTextDepartmentFilterCalled: Bool {
         return filteredEmployeesEnteredTextDepartmentFilterCallsCount > 0
     }
-    var filteredEmployeesEnteredTextDepartmentFilterReceivedArguments: (employees: [Employee], enteredText: String, departmentFilter: EmployeeDepartmentFilter?)?
-    var filteredEmployeesEnteredTextDepartmentFilterReceivedInvocations: [(employees: [Employee], enteredText: String, departmentFilter: EmployeeDepartmentFilter?)] = []
+    var filteredEmployeesEnteredTextDepartmentFilterReceivedArguments: (employees: [Employee], enteredText: String, departmentFilter: EmployeeDepartment?)?
+    var filteredEmployeesEnteredTextDepartmentFilterReceivedInvocations: [(employees: [Employee], enteredText: String, departmentFilter: EmployeeDepartment?)] = []
     var filteredEmployeesEnteredTextDepartmentFilterReturnValue: [Employee]!
-    var filteredEmployeesEnteredTextDepartmentFilterClosure: (([Employee], String, EmployeeDepartmentFilter?) -> [Employee])?
+    var filteredEmployeesEnteredTextDepartmentFilterClosure: (([Employee], String, EmployeeDepartment?) -> [Employee])?
 
-    func filtered(employees: [Employee], enteredText: String, departmentFilter: EmployeeDepartmentFilter?) -> [Employee] {
+    func filtered(employees: [Employee], enteredText: String, departmentFilter: EmployeeDepartment?) -> [Employee] {
         filteredEmployeesEnteredTextDepartmentFilterCallsCount += 1
         filteredEmployeesEnteredTextDepartmentFilterReceivedArguments = (employees: employees, enteredText: enteredText, departmentFilter: departmentFilter)
         filteredEmployeesEnteredTextDepartmentFilterReceivedInvocations.append((employees: employees, enteredText: enteredText, departmentFilter: departmentFilter))

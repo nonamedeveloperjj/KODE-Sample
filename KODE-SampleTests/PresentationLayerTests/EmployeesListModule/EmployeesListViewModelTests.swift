@@ -11,26 +11,26 @@ import XCTest
 final class EmployeesListViewModelTests: XCTestCase {
     private var employeesServiceMock: EmployeesServiceProtocolMock!
     private var rowsFactoryMock: EmployeesListRowsFactoryProtocolMock!
-    private var employeesFilterValidator: EmployeesFilterValidatorProtocolMock!
+    private var employeesFilter: EmployeesFilterProtocolMock!
     private var viewModel: EmployeesListViewModel!
     
     override func setUpWithError() throws {
         try super.setUpWithError()
         employeesServiceMock = EmployeesServiceProtocolMock()
         rowsFactoryMock = EmployeesListRowsFactoryProtocolMock()
-        employeesFilterValidator = EmployeesFilterValidatorProtocolMock()
+        employeesFilter = EmployeesFilterProtocolMock()
         
         viewModel = EmployeesListViewModel(
             employeesService: employeesServiceMock,
             rowsFactory: rowsFactoryMock,
-            employeesFilterValidator: employeesFilterValidator
+            employeesFilter: employeesFilter
         )
     }
     
     override func tearDownWithError() throws {
         employeesServiceMock = nil
         rowsFactoryMock = nil
-        employeesFilterValidator = nil
+        employeesFilter = nil
         viewModel = nil
         try super.tearDownWithError()
     }
@@ -112,25 +112,25 @@ final class EmployeesListViewModelTests: XCTestCase {
         }
         viewModel.fetchEmployees()
         let enteredText = "name1"
-        let departmentFilter: EmployeeDepartmentFilter = .frontend
+        let departmentFilter: EmployeeDepartment = .frontend
         let rowProviders = [EmployeesListDateSeparatorRowModel(date: "2023")]
-        employeesFilterValidator.filteredEmployeesEnteredTextDepartmentFilterReturnValue = employeesResponse.items
+        employeesFilter.filteredEmployeesEnteredTextDepartmentFilterReturnValue = employeesResponse.items
         rowsFactoryMock.createRowModelsFromSortOrderReturnValue = rowProviders
         
         // when
         let rowProviderWrappers = viewModel.rowProviders(with: enteredText, departmentFilter: departmentFilter)
         
         // then
-        XCTAssertEqual(employeesFilterValidator.filteredEmployeesEnteredTextDepartmentFilterCallsCount, 1)
-        XCTAssertEqual(employeesFilterValidator.filteredEmployeesEnteredTextDepartmentFilterReceivedArguments!.employees, employeesResponse.items)
-        XCTAssertEqual(employeesFilterValidator.filteredEmployeesEnteredTextDepartmentFilterReceivedArguments!.enteredText, enteredText)
-        XCTAssertEqual(employeesFilterValidator.filteredEmployeesEnteredTextDepartmentFilterReceivedArguments!.departmentFilter, departmentFilter)
+        XCTAssertEqual(employeesFilter.filteredEmployeesEnteredTextDepartmentFilterCallsCount, 1)
+        XCTAssertEqual(employeesFilter.filteredEmployeesEnteredTextDepartmentFilterReceivedArguments!.employees, employeesResponse.items)
+        XCTAssertEqual(employeesFilter.filteredEmployeesEnteredTextDepartmentFilterReceivedArguments!.enteredText, enteredText)
+        XCTAssertEqual(employeesFilter.filteredEmployeesEnteredTextDepartmentFilterReceivedArguments!.departmentFilter, departmentFilter)
         
         XCTAssertEqual(rowsFactoryMock.createRowModelsFromSortOrderCallsCount, 1)
         XCTAssertEqual(rowsFactoryMock.createRowModelsFromSortOrderReceivedArguments!.sortOrder, viewModel.employeesSortState)
         XCTAssertTrue(
             rowsFactoryMock.createRowModelsFromSortOrderReceivedArguments!.employees
-                .elementsEqual(employeesFilterValidator.filteredEmployeesEnteredTextDepartmentFilterReturnValue)
+                .elementsEqual(employeesFilter.filteredEmployeesEnteredTextDepartmentFilterReturnValue)
         )
 
         XCTAssertTrue(

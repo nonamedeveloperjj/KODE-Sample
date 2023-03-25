@@ -14,7 +14,7 @@ final class EmployeesListAssembly {
         let viewModel = EmployeesListViewModel(
             employeesService: employeesService,
             rowsFactory: EmployeesListRowsFactory(strategyProvider: factoryStrategyProvider),
-            employeesFilterValidator: EmployeesFilterValidator()
+            employeesFilter: EmployeesFilter()
         )
         let view = EmployeesListView(viewModel: viewModel)
         return view

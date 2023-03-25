@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct EmployeeProfileView: View {
-    @ObservedObject private var viewModel: EmployeeProfileViewModel
+    private var viewModel: EmployeeProfileViewModel
     
     private var headerView: some View {
         VStack(spacing: 0.0) {

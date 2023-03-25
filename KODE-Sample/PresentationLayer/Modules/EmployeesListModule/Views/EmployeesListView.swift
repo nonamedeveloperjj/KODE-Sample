@@ -70,7 +70,7 @@ struct EmployeesListView: View {
                     searchBar
                     
                     SegmentedPicker(
-                        EmployeeDepartmentFilter.allCases,
+                        EmployeeDepartment.allCases,
                         selectedIndex: $selectedPickerIndex,
                         selectionAlignment: .bottom,
                         content: { item, isSelected in
@@ -99,7 +99,7 @@ struct EmployeesListView: View {
                     
                     let rowProviderWrappers = viewModel.rowProviders(
                         with: enteredText,
-                        departmentFilter: EmployeeDepartmentFilter(rawValue: selectedPickerIndex)
+                        departmentFilter: EmployeeDepartment(rawValue: selectedPickerIndex)
                     )
                     let shouldShowEmptyState = rowProviderWrappers.isEmpty
                     
@@ -175,7 +175,7 @@ struct EmployeesListView_Previews: PreviewProvider {
             rowsFactory: EmployeesListRowsFactory(
                 strategyProvider: EmployeesListRowsFactoryStrategyProvider()
             ),
-            employeesFilterValidator: EmployeesFilterValidator()
+            employeesFilter: EmployeesFilter()
         )
         EmployeesListView(viewModel: viewModel)
     }

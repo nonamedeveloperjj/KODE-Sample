@@ -66,10 +66,10 @@
 		5ACD3F9B293E1AA20007420D /* HorizontalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACD3F9A293E1AA20007420D /* HorizontalAlignment.swift */; };
 		5ACD3F9D293E1AD90007420D /* View+OptionalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACD3F9C293E1AD90007420D /* View+OptionalAlignment.swift */; };
 		5ACD3F9F293E1B840007420D /* SegmentedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACD3F9E293E1B840007420D /* SegmentedPicker.swift */; };
-		5ACD3FA3293FB74C0007420D /* EmployeeDepartmentFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACD3FA2293FB74C0007420D /* EmployeeDepartmentFilter.swift */; };
+		5ACD3FA3293FB74C0007420D /* EmployeeDepartment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACD3FA2293FB74C0007420D /* EmployeeDepartment.swift */; };
 		5ACD3FA52940CB660007420D /* RowProviderWrapper+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACD3FA42940CB660007420D /* RowProviderWrapper+Equatable.swift */; };
-		5ACD3FA72941F1F00007420D /* EmployeesFilterValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACD3FA62941F1EF0007420D /* EmployeesFilterValidator.swift */; };
-		5ACD3FA92941F4090007420D /* EmployeesFilterValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACD3FA82941F4090007420D /* EmployeesFilterValidatorTests.swift */; };
+		5ACD3FA72941F1F00007420D /* EmployeesFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACD3FA62941F1EF0007420D /* EmployeesFilter.swift */; };
+		5ACD3FA92941F4090007420D /* EmployeesFilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACD3FA82941F4090007420D /* EmployeesFilterTests.swift */; };
 		5ACD3FAB294372B50007420D /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACD3FAA294372B50007420D /* LazyView.swift */; };
 		5ADE468C292BAF7F00903072 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADE468B292BAF7F00903072 /* BottomSheetView.swift */; };
 		5ADE4690292BCDF700903072 /* EmployeesListSortOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADE468F292BCDF700903072 /* EmployeesListSortOptionView.swift */; };
@@ -150,10 +150,10 @@
 		5ACD3F9A293E1AA20007420D /* HorizontalAlignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalAlignment.swift; sourceTree = "<group>"; };
 		5ACD3F9C293E1AD90007420D /* View+OptionalAlignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+OptionalAlignment.swift"; sourceTree = "<group>"; };
 		5ACD3F9E293E1B840007420D /* SegmentedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedPicker.swift; sourceTree = "<group>"; };
-		5ACD3FA2293FB74C0007420D /* EmployeeDepartmentFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDepartmentFilter.swift; sourceTree = "<group>"; };
+		5ACD3FA2293FB74C0007420D /* EmployeeDepartment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDepartment.swift; sourceTree = "<group>"; };
 		5ACD3FA42940CB660007420D /* RowProviderWrapper+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RowProviderWrapper+Equatable.swift"; sourceTree = "<group>"; };
-		5ACD3FA62941F1EF0007420D /* EmployeesFilterValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesFilterValidator.swift; sourceTree = "<group>"; };
-		5ACD3FA82941F4090007420D /* EmployeesFilterValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesFilterValidatorTests.swift; sourceTree = "<group>"; };
+		5ACD3FA62941F1EF0007420D /* EmployeesFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesFilter.swift; sourceTree = "<group>"; };
+		5ACD3FA82941F4090007420D /* EmployeesFilterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesFilterTests.swift; sourceTree = "<group>"; };
 		5ACD3FAA294372B50007420D /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
 		5ADE468B292BAF7F00903072 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		5ADE468F292BCDF700903072 /* EmployeesListSortOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesListSortOptionView.swift; sourceTree = "<group>"; };
@@ -227,7 +227,7 @@
 		5A59C3B02923C4A70012792F /* EmployeesListModule */ = {
 			isa = PBXGroup;
 			children = (
-				5ACD3FA82941F4090007420D /* EmployeesFilterValidatorTests.swift */,
+				5ACD3FA82941F4090007420D /* EmployeesFilterTests.swift */,
 				5A86B1B4293616FE008DF166 /* EmployeesListAlphabetFactoryStrategyTests.swift */,
 				5A86B1B929361F6B008DF166 /* EmployeesListBirthdayFactoryStrategyTests.swift */,
 				5A86B1BB2936360F008DF166 /* EmployeesListRowsFactoryStrategyProviderTests.swift */,
@@ -371,8 +371,8 @@
 		5A6C5A6D28F6E857000C823E /* EmployeesListModule */ = {
 			isa = PBXGroup;
 			children = (
-				5ACD3FA2293FB74C0007420D /* EmployeeDepartmentFilter.swift */,
-				5ACD3FA62941F1EF0007420D /* EmployeesFilterValidator.swift */,
+				5ACD3FA2293FB74C0007420D /* EmployeeDepartment.swift */,
+				5ACD3FA62941F1EF0007420D /* EmployeesFilter.swift */,
 				5A6C5A7128F6EB7A000C823E /* EmployeesListAssembly.swift */,
 				5A231F6229141CC9008BB159 /* EmployeesListViewModel.swift */,
 				5A5DE679291A813B00962F8E /* Rows */,
@@ -652,7 +652,7 @@
 				5A86B19A292FA781008DF166 /* EmployeesListRowModel.swift in Sources */,
 				5A6C5A5B28EC49C1000C823E /* EmployeesListSearchBarView.swift in Sources */,
 				5A231F6029128DD4008BB159 /* Employee.swift in Sources */,
-				5ACD3FA72941F1F00007420D /* EmployeesFilterValidator.swift in Sources */,
+				5ACD3FA72941F1F00007420D /* EmployeesFilter.swift in Sources */,
 				5A86B19D292FA919008DF166 /* RowProvider.swift in Sources */,
 				5ACD3F9B293E1AA20007420D /* HorizontalAlignment.swift in Sources */,
 				5A6C5A6328EEE7C7000C823E /* HTTPClient.swift in Sources */,
@@ -669,7 +669,7 @@
 				5A6C5A7728F98F67000C823E /* RequestMethod.swift in Sources */,
 				5A6C5A7228F6EB7A000C823E /* EmployeesListAssembly.swift in Sources */,
 				5A6A50D728EB1C8C005009D8 /* EmployeesListView.swift in Sources */,
-				5ACD3FA3293FB74C0007420D /* EmployeeDepartmentFilter.swift in Sources */,
+				5ACD3FA3293FB74C0007420D /* EmployeeDepartment.swift in Sources */,
 				5A86B1B32934FF59008DF166 /* DateFormatter+applyCustomShortMonthSymbols.swift in Sources */,
 				5A6C5A7F2902DC62000C823E /* NetworkError.swift in Sources */,
 				5ADE468C292BAF7F00903072 /* BottomSheetView.swift in Sources */,
@@ -703,7 +703,7 @@
 				5A86B1B829361A55008DF166 /* EmployeesListRowModel+Equatable.swift in Sources */,
 				5A86B1B5293616FE008DF166 /* EmployeesListAlphabetFactoryStrategyTests.swift in Sources */,
 				5A231F48290C349B008BB159 /* URLRequestFactoryTests.swift in Sources */,
-				5ACD3FA92941F4090007420D /* EmployeesFilterValidatorTests.swift in Sources */,
+				5ACD3FA92941F4090007420D /* EmployeesFilterTests.swift in Sources */,
 				5A86B1C029363B7D008DF166 /* EmployeesListDateSeparatorRowModel+Equatable.swift in Sources */,
 				5A86B1BE29363791008DF166 /* EmployeesListRowsFactoryTests.swift in Sources */,
 				5A231F4A290FE4BA008BB159 /* URLComponentsFactoryTests.swift in Sources */,

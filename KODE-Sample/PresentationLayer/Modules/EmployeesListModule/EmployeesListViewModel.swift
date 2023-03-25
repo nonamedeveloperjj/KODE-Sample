@@ -19,16 +19,16 @@ final class EmployeesListViewModel: ObservableObject {
     
     private let employeesService: EmployeesServiceProtocol
     private let rowsFactory: EmployeesListRowsFactoryProtocol
-    private let employeesFilterValidator: EmployeesFilterValidatorProtocol
+    private let employeesFilter: EmployeesFilterProtocol
     
     init(
         employeesService: EmployeesServiceProtocol,
         rowsFactory: EmployeesListRowsFactoryProtocol,
-        employeesFilterValidator: EmployeesFilterValidatorProtocol
+        employeesFilter: EmployeesFilterProtocol
     ) {
         self.employeesService = employeesService
         self.rowsFactory = rowsFactory
-        self.employeesFilterValidator = employeesFilterValidator
+        self.employeesFilter = employeesFilter
     }
     
     func fetchEmployees() {
@@ -49,8 +49,8 @@ final class EmployeesListViewModel: ObservableObject {
         }
     }
     
-    func rowProviders(with enteredText: String, departmentFilter: EmployeeDepartmentFilter?) -> [RowProviderWrapper] {
-        let filteredEmployees = employeesFilterValidator.filtered(
+    func rowProviders(with enteredText: String, departmentFilter: EmployeeDepartment?) -> [RowProviderWrapper] {
+        let filteredEmployees = employeesFilter.filtered(
             employees: employees,
             enteredText: enteredText,
             departmentFilter: departmentFilter

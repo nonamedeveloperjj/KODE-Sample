@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class EmployeeProfileViewModel: ObservableObject {
+final class EmployeeProfileViewModel {
     let employee: Employee
     
     var formattedBirthday: String {
