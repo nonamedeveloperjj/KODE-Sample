@@ -27,7 +27,7 @@ import AppKit
 
 
 
-class EmployeesFilterValidatorProtocolMock: EmployeesFilterValidatorProtocol {
+class EmployeesFilterProtocolMock: EmployeesFilterProtocol {
 
     //MARK: - filtered
 

@@ -175,7 +175,7 @@ struct EmployeesListView_Previews: PreviewProvider {
             rowsFactory: EmployeesListRowsFactory(
                 strategyProvider: EmployeesListRowsFactoryStrategyProvider()
             ),
-            employeesFilterValidator: EmployeesFilterValidator()
+            employeesFilter: EmployeesFilter()
         )
         EmployeesListView(viewModel: viewModel)
     }

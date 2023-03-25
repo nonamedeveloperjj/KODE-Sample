@@ -1,5 +1,5 @@
 //
-//  EmployeesFilterValidatorTests.swift
+//  EmployeesFilterTests.swift
 //  KODE-SampleTests
 //
 //  Created by John Snow on 08/12/2022.
@@ -8,16 +8,16 @@
 import XCTest
 @testable import KODE_Sample
 
-final class EmployeesFilterValidatorTests: XCTestCase {
-    var filterValidator: EmployeesFilterValidator!
+final class EmployeesFilterTests: XCTestCase {
+    var filter: EmployeesFilter!
     
     override func setUpWithError() throws {
         try super.setUpWithError()
-        filterValidator = EmployeesFilterValidator()
+        filter = EmployeesFilter()
     }
     
     override func tearDownWithError() throws {
-        filterValidator = nil
+        filter = nil
         try super.tearDownWithError()
     }
     
@@ -26,7 +26,7 @@ final class EmployeesFilterValidatorTests: XCTestCase {
         let employees = [TestData.employee1, TestData.employee2, TestData.employee3]
         
         // when
-        let filteredEmployees = filterValidator.filtered(employees: employees, enteredText: "firstName1", departmentFilter: nil)
+        let filteredEmployees = filter.filtered(employees: employees, enteredText: "firstName1", departmentFilter: nil)
         
         // then
         XCTAssertTrue(filteredEmployees.isEmpty)
@@ -38,7 +38,7 @@ final class EmployeesFilterValidatorTests: XCTestCase {
         let departmentFilter: EmployeeDepartment = .all
         
         // when
-        let filteredEmployees = filterValidator.filtered(employees: employees, enteredText: "", departmentFilter: departmentFilter)
+        let filteredEmployees = filter.filtered(employees: employees, enteredText: "", departmentFilter: departmentFilter)
         
         // then
         XCTAssertTrue(filteredEmployees.elementsEqual(employees))
@@ -50,7 +50,7 @@ final class EmployeesFilterValidatorTests: XCTestCase {
         let departmentFilter: EmployeeDepartment = .android
         
         // when
-        let filteredEmployees = filterValidator.filtered(employees: employees, enteredText: "", departmentFilter: departmentFilter)
+        let filteredEmployees = filter.filtered(employees: employees, enteredText: "", departmentFilter: departmentFilter)
         
         // then
         XCTAssertTrue(filteredEmployees.elementsEqual([TestData.employee3]))
@@ -64,7 +64,7 @@ final class EmployeesFilterValidatorTests: XCTestCase {
         let departmentFilter: EmployeeDepartment = .all
         
         // when
-        let filteredEmployees = filterValidator.filtered(employees: employees, enteredText: enteredText, departmentFilter: departmentFilter)
+        let filteredEmployees = filter.filtered(employees: employees, enteredText: enteredText, departmentFilter: departmentFilter)
         
         // then
         XCTAssertTrue(filteredEmployees.elementsEqual([TestData.employee1]))
@@ -78,7 +78,7 @@ final class EmployeesFilterValidatorTests: XCTestCase {
         let departmentFilter: EmployeeDepartment = .all
         
         // when
-        let filteredEmployees = filterValidator.filtered(employees: employees, enteredText: enteredText, departmentFilter: departmentFilter)
+        let filteredEmployees = filter.filtered(employees: employees, enteredText: enteredText, departmentFilter: departmentFilter)
         
         // then
         XCTAssertTrue(filteredEmployees.elementsEqual([TestData.employee1]))
@@ -92,7 +92,7 @@ final class EmployeesFilterValidatorTests: XCTestCase {
         let departmentFilter: EmployeeDepartment = .support
         
         // when
-        let filteredEmployees = filterValidator.filtered(employees: employees, enteredText: enteredText, departmentFilter: departmentFilter)
+        let filteredEmployees = filter.filtered(employees: employees, enteredText: enteredText, departmentFilter: departmentFilter)
         
         // then
         XCTAssertTrue(filteredEmployees.allSatisfy { ($0.firstName + " " + $0.lastName).contains(enteredText) })
@@ -107,7 +107,7 @@ final class EmployeesFilterValidatorTests: XCTestCase {
         let departmentFilter: EmployeeDepartment = .iOS
         
         // when
-        let filteredEmployees = filterValidator.filtered(employees: employees, enteredText: enteredText, departmentFilter: departmentFilter)
+        let filteredEmployees = filter.filtered(employees: employees, enteredText: enteredText, departmentFilter: departmentFilter)
         
         // then
         XCTAssertTrue(filteredEmployees.isEmpty)
@@ -120,14 +120,14 @@ final class EmployeesFilterValidatorTests: XCTestCase {
         let departmentFilter: EmployeeDepartment = .all
         
         // when
-        let filteredEmployees = filterValidator.filtered(employees: employees, enteredText: enteredText, departmentFilter: departmentFilter)
+        let filteredEmployees = filter.filtered(employees: employees, enteredText: enteredText, departmentFilter: departmentFilter)
         
         // then
         XCTAssertTrue(filteredEmployees.isEmpty)
     }
 }
 
-private extension EmployeesFilterValidatorTests {
+private extension EmployeesFilterTests {
     enum TestData {
         static let employee1 = Employee(
             id: "id1",
