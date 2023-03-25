@@ -49,7 +49,7 @@ final class EmployeesListViewModel: ObservableObject {
         }
     }
     
-    func rowProviders(with enteredText: String, departmentFilter: EmployeeDepartmentFilter?) -> [RowProviderWrapper] {
+    func rowProviders(with enteredText: String, departmentFilter: EmployeeDepartment?) -> [RowProviderWrapper] {
         let filteredEmployees = employeesFilterValidator.filtered(
             employees: employees,
             enteredText: enteredText,

@@ -112,7 +112,7 @@ final class EmployeesListViewModelTests: XCTestCase {
         }
         viewModel.fetchEmployees()
         let enteredText = "name1"
-        let departmentFilter: EmployeeDepartmentFilter = .frontend
+        let departmentFilter: EmployeeDepartment = .frontend
         let rowProviders = [EmployeesListDateSeparatorRowModel(date: "2023")]
         employeesFilterValidator.filteredEmployeesEnteredTextDepartmentFilterReturnValue = employeesResponse.items
         rowsFactoryMock.createRowModelsFromSortOrderReturnValue = rowProviders

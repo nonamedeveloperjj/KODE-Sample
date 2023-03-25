@@ -1,5 +1,5 @@
 //
-//  EmployeeDepartmentFilter.swift
+//  EmployeeDepartment.swift
 //  KODE-Sample
 //
 //  Created by John Snow on 06/12/2022.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum EmployeeDepartmentFilter: Int, CaseIterable {
+enum EmployeeDepartment: Int, CaseIterable {
     case all
     case designers
     case analysts

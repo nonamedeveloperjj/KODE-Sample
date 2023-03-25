@@ -12,7 +12,7 @@ protocol EmployeesFilterValidatorProtocol: AnyObject {
     func filtered(
         employees: [Employee],
         enteredText: String,
-        departmentFilter: EmployeeDepartmentFilter?
+        departmentFilter: EmployeeDepartment?
     ) -> [Employee]
 }
 
@@ -20,7 +20,7 @@ final class EmployeesFilterValidator: EmployeesFilterValidatorProtocol {
     func filtered(
         employees: [Employee],
         enteredText: String,
-        departmentFilter: EmployeeDepartmentFilter?
+        departmentFilter: EmployeeDepartment?
     ) -> [Employee] {
         guard let departmentFilter = departmentFilter else {
             return []
@@ -31,7 +31,7 @@ final class EmployeesFilterValidator: EmployeesFilterValidatorProtocol {
     private func isValid(
         employee: Employee,
         enteredText: String,
-        departmentFilter: EmployeeDepartmentFilter
+        departmentFilter: EmployeeDepartment
     ) -> Bool {
         let lowercasedEnteredText = enteredText.lowercased()
         let fullName = employee.firstName + " " + employee.lastName

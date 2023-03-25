@@ -35,7 +35,7 @@ final class EmployeesFilterValidatorTests: XCTestCase {
     func testValidatorReturnsAllEmployeesIfEnteredTextIsEmptyAndAllFilter() {
         // given
         let employees = [TestData.employee1, TestData.employee2, TestData.employee3]
-        let departmentFilter: EmployeeDepartmentFilter = .all
+        let departmentFilter: EmployeeDepartment = .all
         
         // when
         let filteredEmployees = filterValidator.filtered(employees: employees, enteredText: "", departmentFilter: departmentFilter)
@@ -47,7 +47,7 @@ final class EmployeesFilterValidatorTests: XCTestCase {
     func testValidatorReturnsAllEmployeesIfEnteredTextIsEmptyAndSpecificFilter() {
         // given
         let employees = [TestData.employee1, TestData.employee2, TestData.employee3]
-        let departmentFilter: EmployeeDepartmentFilter = .android
+        let departmentFilter: EmployeeDepartment = .android
         
         // when
         let filteredEmployees = filterValidator.filtered(employees: employees, enteredText: "", departmentFilter: departmentFilter)
@@ -61,7 +61,7 @@ final class EmployeesFilterValidatorTests: XCTestCase {
         // given
         let employees = [TestData.employee1, TestData.employee2, TestData.employee3]
         let enteredText = "firstName1"
-        let departmentFilter: EmployeeDepartmentFilter = .all
+        let departmentFilter: EmployeeDepartment = .all
         
         // when
         let filteredEmployees = filterValidator.filtered(employees: employees, enteredText: enteredText, departmentFilter: departmentFilter)
@@ -75,7 +75,7 @@ final class EmployeesFilterValidatorTests: XCTestCase {
         // given
         let employees = [TestData.employee1, TestData.employee2, TestData.employee3]
         let enteredText = "userTag1"
-        let departmentFilter: EmployeeDepartmentFilter = .all
+        let departmentFilter: EmployeeDepartment = .all
         
         // when
         let filteredEmployees = filterValidator.filtered(employees: employees, enteredText: enteredText, departmentFilter: departmentFilter)
@@ -89,7 +89,7 @@ final class EmployeesFilterValidatorTests: XCTestCase {
         // given
         let employees = [TestData.employee1, TestData.employee2, TestData.employee3]
         let enteredText = "firstName"
-        let departmentFilter: EmployeeDepartmentFilter = .support
+        let departmentFilter: EmployeeDepartment = .support
         
         // when
         let filteredEmployees = filterValidator.filtered(employees: employees, enteredText: enteredText, departmentFilter: departmentFilter)
@@ -104,7 +104,7 @@ final class EmployeesFilterValidatorTests: XCTestCase {
         // given
         let employees = [TestData.employee1, TestData.employee2, TestData.employee3]
         let enteredText = "firstName"
-        let departmentFilter: EmployeeDepartmentFilter = .iOS
+        let departmentFilter: EmployeeDepartment = .iOS
         
         // when
         let filteredEmployees = filterValidator.filtered(employees: employees, enteredText: enteredText, departmentFilter: departmentFilter)
@@ -117,7 +117,7 @@ final class EmployeesFilterValidatorTests: XCTestCase {
         // given
         let employees = [TestData.employee1, TestData.employee2, TestData.employee3]
         let enteredText = "other name"
-        let departmentFilter: EmployeeDepartmentFilter = .all
+        let departmentFilter: EmployeeDepartment = .all
         
         // when
         let filteredEmployees = filterValidator.filtered(employees: employees, enteredText: enteredText, departmentFilter: departmentFilter)
