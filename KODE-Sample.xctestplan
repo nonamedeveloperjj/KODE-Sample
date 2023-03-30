@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "32324658-B5A4-4E85-ADB6-B2F30054C795",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:KODE-Sample.xcodeproj",
+      "identifier" : "5A6A50D028EB1C8C005009D8",
+      "name" : "KODE-Sample"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:KODE-Sample.xcodeproj",
+        "identifier" : "5A6A50E028EB1C8F005009D8",
+        "name" : "KODE-SampleTests"
+      }
+    }
+  ],
+  "version" : 1
+}

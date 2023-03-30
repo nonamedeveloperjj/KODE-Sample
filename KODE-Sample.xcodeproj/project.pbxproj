@@ -159,6 +159,7 @@
 		5ADE468F292BCDF700903072 /* EmployeesListSortOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesListSortOptionView.swift; sourceTree = "<group>"; };
 		5ADE4691292CD9FB00903072 /* EmployeesSortOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesSortOrder.swift; sourceTree = "<group>"; };
 		5ADE4696292E52D700903072 /* EmployeesListSortView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeesListSortView.swift; sourceTree = "<group>"; };
+		5AEAFE5F29D5D85400408886 /* KODE-Sample.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "KODE-Sample.xctestplan"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +252,7 @@
 		5A6A50C828EB1C8C005009D8 = {
 			isa = PBXGroup;
 			children = (
+				5AEAFE5F29D5D85400408886 /* KODE-Sample.xctestplan */,
 				5A6A50D328EB1C8C005009D8 /* KODE-Sample */,
 				5A6A50E428EB1C8F005009D8 /* KODE-SampleTests */,
 				5A6A50D228EB1C8C005009D8 /* Products */,
@@ -584,7 +586,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1330;
-				LastUpgradeCheck = 1330;
+				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					5A6A50D028EB1C8C005009D8 = {
 						CreatedOnToolsVersion = 13.3.1;
@@ -754,6 +756,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -814,6 +817,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";

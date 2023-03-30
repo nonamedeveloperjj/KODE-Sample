@@ -1,0 +1,16 @@
+lane :unit_tests do
+  xcode_select("/Applications/Xcode_13.4.1.app")
+  scan(
+    scheme: 'KODE-SampleTests',             
+    clean: true,                      
+    skip_detect_devices: true,      
+    build_for_testing: true,        
+    sdk: 'iphoneos',             
+    should_zip_build_products: false,
+    buildlog_path: "./fastlane/fastlane-buildlog",
+    configuration: 'Debug',
+    derived_data_path: "./DerivedData",
+    devices: ["iPhone 13"]
+  )
+end
+
