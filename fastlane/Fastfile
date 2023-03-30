@@ -1,0 +1,13 @@
+lane :unit_tests do
+  scan(
+    scheme: 'KODE-SampleTests',                                   
+    skip_detect_devices: true,       
+    sdk: 'iphoneos',             
+    buildlog_path: "./fastlane/fastlane-buildlog",
+    configuration: 'Debug',
+    derived_data_path: "./DerivedData",
+    devices: ["iPhone 14"],
+    code_coverage: true
+  )
+end
+
