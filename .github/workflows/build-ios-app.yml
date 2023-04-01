@@ -1,15 +1,16 @@
 name: Build and test
 on:
-  push:
-    branches:
-      - 'develop'
   pull_request:
     branches: [ "develop" ]
 jobs:
   build:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: fastlane unit_tests
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: Run unit tests
+        run: fastlane unit_tests
+        
         env:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
