@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Torch_Network
 
 // sourcery: AutoMockable
 protocol EmployeesServiceProtocol: AnyObject {
