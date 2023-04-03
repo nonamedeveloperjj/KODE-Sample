@@ -9,6 +9,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         
+      - name: Update bundler
+        run: bundle update
+        
       - name: Run unit tests
         run: bundle exec fastlane unit_tests
         
