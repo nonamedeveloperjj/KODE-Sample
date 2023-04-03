@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Torch_Network
 
 final class EmployeesListAssembly {
     func createModule() -> EmployeesListView {

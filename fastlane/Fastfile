@@ -1,4 +1,5 @@
 lane :unit_tests do
+  desc "Running Unit Tests for scheme KODE-SampleTests"
   scan(
     scheme: 'KODE-SampleTests',                                   
     skip_detect_devices: true,       
