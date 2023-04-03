@@ -10,7 +10,7 @@ jobs:
         uses: actions/checkout@v2
         
       - name: Run unit tests
-        run: fastlane unit_tests
+        run: bundle exec fastlane unit_tests
         
         env:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
