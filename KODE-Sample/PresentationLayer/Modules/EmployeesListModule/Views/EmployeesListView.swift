@@ -168,15 +168,15 @@ struct EmployeesListView: View {
     }
 }
 
-struct EmployeesListView_Previews: PreviewProvider {
-    static var previews: some View {
-        let viewModel = EmployeesListViewModel(
-            employeesService: EmployeesService(httpClient: HTTPClientAssembly().create()),
-            rowsFactory: EmployeesListRowsFactory(
-                strategyProvider: EmployeesListRowsFactoryStrategyProvider()
-            ),
-            employeesFilter: EmployeesFilter()
-        )
-        EmployeesListView(viewModel: viewModel)
-    }
-}
+//struct EmployeesListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let viewModel = EmployeesListViewModel(
+//            employeesService: EmployeesService(httpClient: HTTPClientAssembly().create()),
+//            rowsFactory: EmployeesListRowsFactory(
+//                strategyProvider: EmployeesListRowsFactoryStrategyProvider()
+//            ),
+//            employeesFilter: EmployeesFilter()
+//        )
+//        EmployeesListView(viewModel: viewModel)
+//    }
+//}
