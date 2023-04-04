@@ -107,6 +107,15 @@
       }
     },
     {
+      "identity" : "torch.network",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/nonamedeveloperjj/Torch.Network.git",
+      "state" : {
+        "revision" : "8cc0feeb709819e6c3f931e528d20e4052f825a4",
+        "version" : "1.0.0"
+      }
+    },
+    {
       "identity" : "xcodeproj",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/tuist/XcodeProj.git",
